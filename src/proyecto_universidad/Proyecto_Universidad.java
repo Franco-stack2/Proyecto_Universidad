@@ -4,17 +4,19 @@
  */
 package proyecto_universidad;
 
-/**
- *
- * @author Usuario
- */
+
+import javax.swing.JOptionPane;
+
 public class Proyecto_Universidad {
 
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String[] args) {
-        // TODO code application logic here
+  
+        
+        
+        
+        
+        
     }
     
 }
