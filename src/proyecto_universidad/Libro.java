@@ -4,13 +4,21 @@
  */
 package proyecto_universidad;
 
-/**
- *
- * @author Usuario
- */
+
+
 public class Libro {
     
- 
-    
-    
+  private int AnioPublicacion;
+  
+  private String isbn,titulo,autor,editorial;
+  
+  private int vecesPrestado = 0;  
+
+  private Genero genero;
+  
+  private EstadoLibro estadoLibro;
+  
+  private static int contadorISBN = 1;
+  
+
 }
