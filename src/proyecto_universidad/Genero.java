@@ -13,6 +13,12 @@ public enum Genero {
   INFANTIL,
   POESIA,
   ENSAYO
+  
+  
+  
+  
+  
+  
 }
     
     
