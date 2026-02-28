@@ -17,6 +17,8 @@ public class Proyecto_Universidad {
         
         System.out.println("Franco");
         
+         System.out.println("Alonso");
+        
     }
     
 }
