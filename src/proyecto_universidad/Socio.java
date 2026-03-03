@@ -2,6 +2,7 @@
 package proyecto_universidad;
 
 
-public class Socio {
+public class Socio 
+{
     
 }
