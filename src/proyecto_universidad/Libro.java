@@ -40,7 +40,7 @@ public Libro(String titulo, String autor, String editorial, Genero genero, int A
 private String generarISBN() {
         String codigo;
 
-if(contadorISBN < 10){
+if(contadorISBN < 10){ // aquí se realiza un contador con if y else if para poder realizar el generador de codigo la forma mas organica posible
     codigo = "LIB-00" + contadorISBN;
 }
 else if(contadorISBN < 100){
