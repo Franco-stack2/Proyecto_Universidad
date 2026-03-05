@@ -1,0 +1,52 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package proyecto_universidad;
+
+import java.time.format.DateTimeFormatter;
+
+/**
+ *
+ * @author bbadi
+ */
+public class Prestamo {
+    
+     private static int contador = 1000; // inicia en 1000
+
+    private int idPrestamo;
+   private Socio socio;
+   private Libro libro;
+    private String fechaPrestamo;
+    private String fechaDevolucionEstimada;
+    private String fechaDevolucionReal;
+    private EstadoPrestamo estadoPrestamo;
+    
+     private static final DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private double multaGeneradaEstePrestamo;
+
+    public Prestamo(Socio socio, Libro libro, String fechaPrestamo) {
+        this.idPrestamo = contador++;
+        this.socio = socio;
+        this.libro = libro;
+        this.fechaPrestamo = fechaPrestamo;
+        this.fechaDevolucionEstimada = "15 dias despues"; // simple
+        this.fechaDevolucionReal = null;
+        this.estadoPrestamo = EstadoPrestamo.ACTIVO;
+        this.multaGeneradaEstePrestamo = 0.0;
+    }
+    
+    public void devolverLibros(String fechaReal){
+     this.fechaDevolucionReal = fechaReal;
+        this.estadoPrestamo = EstadoPrestamo.DEVUELTO_A_TIEMPO;
+    
+    }
+    
+      public int getIdPrestamo() {
+        return idPrestamo;
+    }
+
+    public String getEstadoPrestamo() {
+        return estadoPrestamo.toString();
+    }
+}
