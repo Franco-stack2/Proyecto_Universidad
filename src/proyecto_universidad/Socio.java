@@ -7,17 +7,22 @@ import java.time.format.DateTimeFormatter;
 public class Socio 
 {
     private static int contadorLibros = 0;
-    private static int contadorIdSocio = 0;
+    private static int contadorIdSocio = 1;
     private String idSocio;
     private String nombreCompleto;
+    private String fechaRegistro;
     private Estadosocio estadoSocio;
-    private double multasAcumuladas = 0.0;
-    private int cantidadLibrosPrestadosActual = contadorLibros;
+    private double multasAcumuladas;
+    private int cantidadLibrosPrestadosActual;
 
-    public Socio(String nombreCompleto) {/// **************
+    public Socio(String nombreCompleto) {
+        
         this.idSocio = generarIdSocio();
         this.nombreCompleto = nombreCompleto;
-        // Faltan
+        this.fechaRegistro = generarFechaRegistro();
+        this.estadoSocio = Estadosocio.ACTIVO;
+        this.multasAcumuladas = 0.0;
+        this.cantidadLibrosPrestadosActual = contadorLibros;
     }
 
     
