@@ -54,8 +54,8 @@ public class Prestamo {
         return idPrestamo;
     }
 
-    public String getEstadoPrestamo() {
-        return estadoPrestamo.toString();
+     public EstadoPrestamo getEstadoPrestamo() {
+        return estadoPrestamo;
     }
   
 }
