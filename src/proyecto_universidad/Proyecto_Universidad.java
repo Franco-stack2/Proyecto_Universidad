@@ -14,7 +14,7 @@ public class Proyecto_Universidad {
       static Prestamo[] prestamos = new Prestamo[50];
 
       static String[] titulos = {
-      "Cien Años de Soledad",
+      "Cien Anios de Soledad",
       "El Principito",
       "1984",
       "Don Quijote de la Mancha",
@@ -44,7 +44,7 @@ public class Proyecto_Universidad {
       };
     // lo siguiente seria la lista de socios con nombres y apellidos
       static String[] nombres = {
-      "Carlos","Ana","Luis","Maria","Pedro","Laura","Jose","Daniela"
+      "Carlos","Ana","Luis","Maria","mohamed","Laura","Jose","Daniela"
       };
 
       static String[] apellidos = {
@@ -72,17 +72,17 @@ public class Proyecto_Universidad {
     
     public static void generarLibros(int cantidad){
 
-      Genero[] generos = Genero.values();
+      Genero[] generos = Genero.values(); // el values me sirve para tener los valores de la clase "genero" creada en el objeto de libro
 
 for(int i=0;i<cantidad;i++){
 
-String titulo = titulos[(int)(Math.random()*titulos.length)];
-String autor = autores[(int)(Math.random()*autores.length)];
-String editorial = editoriales[(int)(Math.random()*editoriales.length)];
+String titulo = titulos[(int)(Math.random()*titulos.length)]; // el math.random nos genera un decimal donde el "titulos.length" da una posicion entre los libros
+String autor = autores[(int)(Math.random()*autores.length)]; // el int es para permitir que ese numero sea cerrado y cuando el ciclo termine autores tenga un numero
+String editorial = editoriales[(int)(Math.random()*editoriales.length)]; // en el cual poder elegir de la lista de libros totalmente random
 
 Genero genero = generos[(int)(Math.random()*generos.length)];
 
-int anio = 1950 + (int)(Math.random()*74);
+int anio = 1950 + (int)(Math.random()*74); // esta linea nos genera un numero aleatorio entre el 1950 a 2023
 
 Libro libro = new Libro(titulo,autor,editorial,genero,anio);
 
@@ -90,6 +90,7 @@ libros[totalLibros] = libro;
 
 totalLibros++;
 
+libros[i].mostrarLibro(); // esta linea es una prueba para ver si generar libros funciona
 }
         
         
