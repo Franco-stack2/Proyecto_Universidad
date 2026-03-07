@@ -44,7 +44,7 @@ public class Proyecto_Universidad {
       };
     // lo siguiente seria la lista de socios con nombres y apellidos
       static String[] nombres = {
-      "Carlos","Ana","Luis","Maria","mohamed","Laura","Jose","Daniela"
+      "Carlos","Ana","Luis","Maria","Mohamed","Laura","Jose","Daniela"
       };
 
       static String[] apellidos = {
