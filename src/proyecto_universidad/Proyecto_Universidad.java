@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
 
 public class Proyecto_Universidad {
 
-      static Libro[] libros = new Libro[50];
-      static Socio[] socios = new Socio[30];
+      static Libro[] libros = new Libro[50]; // se realizan los static ya que esto representa un beneficio en ahorrarnos en crear el objeto uno por uno
+      static Socio[] socios = new Socio[30]; // por ejemplo el objeto libros se comprende como que hay 50 libros y no hay que crear libro1,libro2 que es mas tedioso
       static Prestamo[] prestamos = new Prestamo[50];
 
-      static int totalLibros = 0;
+      static int totalLibros = 0; // este inicializador nos ayuda a mantener los valores iniciales en cero y asegurarnos de que el conteo empieze correctamente
       static int totalSocios = 0;
       static int totalPrestamos = 0;
     
@@ -22,11 +22,25 @@ public class Proyecto_Universidad {
     public static void main(String[] args) {
   
         
-        
+       generarLibros(20);
+       generarSocios(10); 
    
      
      
      
     }
+    
+    public static void generarLibros(int cantidad){
+
+// codigo para generar libros
+
+}
+    
+   public static void generarSocios(int cantidad){
+
+// codigo para generar socios
+
+} 
+    
     
 }
