@@ -12,8 +12,10 @@ public class Proyecto_Universidad {
  
     public static void main(String[] args) {
   
-        
-       
+     Libro[] libros = new Libro[50];
+     Socio[] socios = new Socio[30];
+     Prestamo[] prestamos = new Prestamo[50];   
+         
         
     }
     
