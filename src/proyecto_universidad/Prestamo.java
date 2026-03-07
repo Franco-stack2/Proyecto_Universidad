@@ -4,6 +4,7 @@
  */
 package proyecto_universidad;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -12,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Prestamo {
     
-     private static int contador = 1000; // inicia en 1000
+    private static int contador = 1000; 
 
     private int idPrestamo;
    private Socio socio;
@@ -29,16 +30,23 @@ public class Prestamo {
         this.idPrestamo = contador++;
         this.socio = socio;
         this.libro = libro;
-        this.fechaPrestamo = fechaPrestamo;
+        LocalDate hoy = LocalDate.now();
+        this.fechaPrestamo = hoy.format(formato);
         this.fechaDevolucionEstimada = "15 dias despues"; // simple
         this.fechaDevolucionReal = null;
         this.estadoPrestamo = EstadoPrestamo.ACTIVO;
         this.multaGeneradaEstePrestamo = 0.0;
     }
     
-    public void devolverLibros(String fechaReal){
-     this.fechaDevolucionReal = fechaReal;
-        this.estadoPrestamo = EstadoPrestamo.DEVUELTO_A_TIEMPO;
+    public void devolverLibros(String fechaReal, boolean retraso){
+      this.fechaDevolucionReal = fechaReal;
+
+        if (retraso) {
+            this.estadoPrestamo = EstadoPrestamo.DEVUELTO_CON_RETRASO;
+            this.multaGeneradaEstePrestamo = 1000; // multa simple
+        } else {
+            this.estadoPrestamo = EstadoPrestamo.DEVUELTO_A_TIEMPO;
+        }
     
     }
     
@@ -49,4 +57,5 @@ public class Prestamo {
     public String getEstadoPrestamo() {
         return estadoPrestamo.toString();
     }
+  
 }
