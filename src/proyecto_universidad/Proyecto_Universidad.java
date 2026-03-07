@@ -61,15 +61,9 @@ public class Proyecto_Universidad {
        
        generarLibros(20);
        generarSocios(10); 
-   
-     
-     
-     
+  
     }
-    
-    
-    
-    
+ 
     public static void generarLibros(int cantidad){
 
       Genero[] generos = Genero.values(); // el values me sirve para tener los valores de la clase "genero" creada en el objeto de libro
@@ -92,9 +86,6 @@ totalLibros++;
 
 libros[i].mostrarLibro(); // esta linea es una prueba para ver si generar libros funciona
 }
-        
-        
-        
 
 }
     
