@@ -13,17 +13,17 @@ import java.time.format.DateTimeFormatter;
  */
 public class Prestamo {
     
-    private static int contador = 1000; 
+    private static int contador = 1000;
 
     private int idPrestamo;
-   private Socio socio;
-   private Libro libro;
+    private Socio socio;
+    private Libro libro;
     private String fechaPrestamo;
     private String fechaDevolucionEstimada;
     private String fechaDevolucionReal;
     private EstadoPrestamo estadoPrestamo;
-    
-     private static final DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    private static final DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private double multaGeneradaEstePrestamo;
 
     public Prestamo(Socio socio, Libro libro, String fechaPrestamo) {
