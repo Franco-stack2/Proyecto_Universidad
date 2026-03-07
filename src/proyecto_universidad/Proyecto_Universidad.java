@@ -9,14 +9,24 @@ import javax.swing.JOptionPane;
 
 public class Proyecto_Universidad {
 
- 
+      static Libro[] libros = new Libro[50];
+      static Socio[] socios = new Socio[30];
+      static Prestamo[] prestamos = new Prestamo[50];
+
+      static int totalLibros = 0;
+      static int totalSocios = 0;
+      static int totalPrestamos = 0;
+    
+    
+    
     public static void main(String[] args) {
   
-     Libro[] libros = new Libro[50];
-     Socio[] socios = new Socio[30];
-     Prestamo[] prestamos = new Prestamo[50];   
-         
         
+        
+   
+     
+     
+     
     }
     
 }
