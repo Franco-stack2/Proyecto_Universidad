@@ -32,7 +32,7 @@ public class Prestamo {
         this.libro = libro;
         LocalDate hoy = LocalDate.now();
         this.fechaPrestamo = hoy.format(formato);
-        this.fechaDevolucionEstimada = "15 dias despues"; // simple
+        this.fechaDevolucionEstimada = "15 dias despues"; 
         this.fechaDevolucionReal = null;
         this.estadoPrestamo = EstadoPrestamo.ACTIVO;
         this.multaGeneradaEstePrestamo = 0.0;
