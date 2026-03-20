@@ -66,7 +66,7 @@ public class Generadorlibros {
 
         Genero genero = generos[(int)(Math.random()*generos.length)];
 
-        int anio = 1950 + (int)(Math.random()*74);
+        int anio = 1950 + (int)(Math.random()*77); // esta linea de codigo nos da un margen de 1950 a 2026 para no tener fechas como 2027 porque no son validas
 
         return new Libro(titulo, autor, editorial, genero, anio);
 
