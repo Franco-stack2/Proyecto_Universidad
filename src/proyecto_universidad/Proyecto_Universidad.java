@@ -12,12 +12,12 @@ public class Proyecto_Universidad {
 
     public static void main(String[] args) {
   
-        Libro[] libros = new Libro[50];
+      Libro[] libros = new Libro[50];
         int totalLibros = 0;
 
-        totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
+        totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 5);
 
-        Generadorlibros.mostrarBiblioteca(libros, totalLibros);
+        Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario
   
     }
     
