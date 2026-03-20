@@ -16,11 +16,11 @@ public class Menu {
 
         do{
 
-            opcion = JOptionPane.showInputDialog("""
-                MENU PRINCIPAL
-
-                1. Biblioteca
-                2. Salir
+            opcion = JOptionPane.showInputDialog(
+            """
+            MENU PRINCIPAL
+            1. Biblioteca
+            2. Salir
             """);
 
             switch(opcion){
