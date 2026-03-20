@@ -77,7 +77,7 @@ public class Generadorlibros {
     public static void mostrarBiblioteca(Libro[] libros, int totalLibros){
 
     for(int i = 0; i < totalLibros; i++){
-        System.out.println(libros[i]);
+        libros[i].mostrarLibro();
     }
 
 }
