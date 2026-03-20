@@ -15,7 +15,7 @@ public class Proyecto_Universidad {
         Libro[] libros = new Libro[50];
         int totalLibros = 0;
 
-        totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 5);
+        totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
 
         Generadorlibros.mostrarBiblioteca(libros, totalLibros);
   
