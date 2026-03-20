@@ -56,29 +56,47 @@ public class Generadorlibros {
       static int totalSocios = 0; // tambien se utiliza el static para que esta variable pueda ser utilizada en otros metodos y no este desconectada
       static int totalPrestamos = 0;
     
+          public static Libro generarLibro(){
 
-    public static void generarLibros(int cantidad){
+        Genero[] generos = Genero.values();
 
-    Genero[] generos = Genero.values(); // el values me sirve para tener los valores de la clase "genero" creada en el objeto de libro
+        String titulo = titulos[(int)(Math.random()*titulos.length)];
+        String autor = autores[(int)(Math.random()*autores.length)];
+        String editorial = editoriales[(int)(Math.random()*editoriales.length)];
 
-     for(int i=0;i<cantidad;i++){
+        Genero genero = generos[(int)(Math.random()*generos.length)];
 
-     String titulo = titulos[(int)(Math.random()*titulos.length)]; // el math.random nos genera un decimal donde el "titulos.length" da una posicion entre los libros
-     String autor = autores[(int)(Math.random()*autores.length)]; // el int es para permitir que ese numero sea cerrado y cuando el ciclo termine autores tenga un numero
-     String editorial = editoriales[(int)(Math.random()*editoriales.length)]; // en el cual poder elegir de la lista de libros totalmente random
+        int anio = 1950 + (int)(Math.random()*74);
 
-     Genero genero = generos[(int)(Math.random()*generos.length)];
+        return new Libro(titulo, autor, editorial, genero, anio);
 
-     int anio = 1950 + (int)(Math.random()*74); // esta linea nos genera un numero aleatorio entre el 1950 a 2023
+          }
+        
+ 
+          
+    public static void mostrarBiblioteca(Libro[] libros, int totalLibros){
 
-      Libro libro = new Libro(titulo,autor,editorial,genero,anio);
+    for(int i = 0; i < totalLibros; i++){
+        System.out.println(libros[i]);
+    }
 
-     libros[totalLibros] = libro;
-
-     totalLibros++;
-
-     libros[i].mostrarLibro(); // esta linea es una prueba para ver si generar libros funciona
 }
-    
+
+    public static int cargarLibros(Libro[] libros, int totalLibros, int cantidad){
+
+    for(int i = 0; i < cantidad; i++){
+
+        if(totalLibros >= 50){
+            System.out.println("Limite alcanzado");
+            return totalLibros;
+        }
+
+        libros[totalLibros] = Generadorlibros.generarLibro();
+
+        totalLibros++;
+    }
+
+    return totalLibros;
 }
+
 }
