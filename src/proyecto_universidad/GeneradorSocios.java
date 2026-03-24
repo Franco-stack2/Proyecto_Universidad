@@ -61,7 +61,35 @@ public class GeneradorSocios {
 
             System.out.println(linea);
         }
+        
+        
     }
+    
+    public static void resumenSocios(){
+
+    int total = listaSocios.size();
+    int activos = 0;
+    int morosos = 0;
+
+    for(int i = 0; i < listaSocios.size(); i++){
+
+        Socio s = listaSocios.get(i);
+
+        if(s.getEstadoSocio() == Estadosocio.ACTIVO){
+            activos++;
+        }
+
+        if(s.getEstadoSocio() == Estadosocio.MOROSO){
+            morosos++;
+        }
+    }
+
+    System.out.println("===== RESUMEN SOCIOS =====");
+    System.out.println("Total Socios Registrados: " + total);
+    System.out.println("Socios Activos: " + activos);
+    System.out.println("Socios Morosos: " + morosos);
+}
+ 
 }
 
 

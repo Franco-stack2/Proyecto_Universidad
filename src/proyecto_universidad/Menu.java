@@ -26,8 +26,11 @@ public class Menu {
             switch(opcion){
 
                 case "1":
-                    Generadorlibros.mostrarBiblioteca(libros, totalLibros);
+                    Generadorlibros.mostrarBiblioteca(libros, totalLibros); // resumen de libros
                     JOptionPane.showMessageDialog(null, "Datos mostrados en consola");
+                    GeneradorSocios.resumenSocios();
+
+                    JOptionPane.showMessageDialog(null, "Informacion mostrada en consola"); // este es el resumen de socios
                     break;
 
                 case "2":
