@@ -77,5 +77,60 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
         System.out.println("Libro: " + libroEncontrado.getTitulo());
         System.out.println("Estado: " + p.getEstadoPrestamo());
     }
+    
+    public static void consultarPrestamo(){
+
+    String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
+    int id = Integer.parseInt(input);
+
+    for(int i = 0; i < listaPrestamos.size(); i++){
+
+        Prestamo p = listaPrestamos.get(i);
+
+        if(p.getIdPrestamo() == id){
+
+            JOptionPane.showMessageDialog(null,
+                "ID: " + p.getIdPrestamo() + "\n" +
+                "Estado: " + p.getEstadoPrestamo()
+            );
+
+            return;
+        }
+    }
+
+    JOptionPane.showMessageDialog(null, "Prestamo no existe");
+}
+    public static void registrarDevolucion(){
+
+    String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
+    int id = Integer.parseInt(input);
+
+    for(int i = 0; i < listaPrestamos.size(); i++){
+
+        Prestamo p = listaPrestamos.get(i);
+
+        if(p.getIdPrestamo() == id){
+
+            if(p.getEstadoPrestamo() != EstadoPrestamo.ACTIVO){
+                JOptionPane.showMessageDialog(null, "El prestamo no esta activo");
+                return;
+            }
+
+            // se da la simulacion de una devolucion sin atrasos
+            p.devolverLibros("HOY", false);
+
+            // se cambia el estado del libro
+            p.getLibro().devolver();
+
+            JOptionPane.showMessageDialog(null, "Libro devuelto correctamente");
+
+            return;
+        }
+    }
+
+    JOptionPane.showMessageDialog(null, "Prestamo no existe");
+}
+    
+    
 }
 

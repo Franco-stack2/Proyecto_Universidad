@@ -7,70 +7,77 @@ package proyecto_universidad;
 
 import javax.swing.JOptionPane;
 
-
 public class Menu {
-    
-    public static void menuPrincipal(Libro[] libros, int totalLibros){
+
+    public static void menuPrincipal(Libro[] libros, int totalLibros) {
 
         String opcion;
 
-        do{
+        do {
 
-            opcion = JOptionPane.showInputDialog(
-            """
-            MENU PRINCIPAL
-            1. Biblioteca
-            2. Ingresar al menu de prestamos
+            opcion = JOptionPane.showInputDialog("""
+                MENU PRINCIPAL
+                1. Biblioteca
+                2. Ingresar al menu de prestamos
+                3. Salir
             """);
 
-            switch(opcion){
+            switch (opcion) {
 
                 case "1":
-                    Generadorlibros.mostrarBiblioteca(libros, totalLibros); // resumen de libros
-                    JOptionPane.showMessageDialog(null, "Datos mostrados en consola");
+                    Generadorlibros.mostrarBiblioteca(libros, totalLibros);
                     GeneradorSocios.resumenSocios();
-
-                    JOptionPane.showMessageDialog(null, "Informacion mostrada en consola"); // este es el resumen de socios
+                    JOptionPane.showMessageDialog(null, "Informacion mostrada en consola");
                     break;
 
                 case "2":
-               String opcionPrestamo;
 
-              do{ // se realiza un do para que el menu se ejecute al menos una vez
+                    String opcionPrestamo;
 
-        opcionPrestamo = JOptionPane.showInputDialog("""
-            MENU PRESTAMOS
+                    do {
 
-            1. Registrar Prestamo
-            2. Registrar Devolucion
-            3. Consultar Prestamo por ID
-            4. Salir
-        """);
+                        opcionPrestamo = JOptionPane.showInputDialog("""
+                            MENU PRESTAMOS
 
-        switch(opcionPrestamo){
+                            1. Registrar Prestamo
+                            2. Registrar Devolucion
+                            3. Consultar Prestamo por ID
+                            4. Salir
+                        """);
 
-            case "1":
-                GestionPrestamos.registrarPrestamo(libros, totalLibros);
-                break;
+                        switch (opcionPrestamo) {
 
-            case "2":
-                GestionPrestamos.registrarDevolucion();
-                break;
+                            case "1":
+                                GestionPrestamos.registrarPrestamo(libros, totalLibros);
+                                break;
 
-            case "3":
-                GestionPrestamos.consultarPrestamo();
-                break;
+                            case "2":
+                                GestionPrestamos.registrarDevolucion();
+                                break;
 
-            case "4":
-                break;
+                            case "3":
+                                GestionPrestamos.consultarPrestamo();
+                                break;
 
-            default:
-                JOptionPane.showMessageDialog(null, "Opcion invalida");
-        }
+                            case "4":
+                                break;
 
-    }while(!opcionPrestamo.equals("4"));
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion invalida");
+                        }
 
-    break;
+                    } while (!opcionPrestamo.equals("4"));
+
+                    break;
+
+                case "3":
+                    JOptionPane.showMessageDialog(null, "Saliendo...");
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion invalida");
+            }
+
+        } while (!opcion.equals("3"));
     }
-    
 }

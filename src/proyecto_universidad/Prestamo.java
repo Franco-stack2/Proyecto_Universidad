@@ -58,4 +58,7 @@ public class Prestamo {
         return estadoPrestamo;
     }
   
+     public Libro getLibro(){
+    return libro;
+}
 }
