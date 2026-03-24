@@ -6,36 +6,62 @@ import java.util.Random;
 
 
 public class GeneradorSocios {
-    ArrayList<Socio> listaSocios = new ArrayList<>();
-    Random random = new Random();
+    static ArrayList<Socio> listaSocios = new ArrayList<>();
+    static Random random = new Random();
 
-    private String generarNombreCompleto()
-    {
-        
+    static String[] nombres = {
+        "Carlos", "Ana", "Luis", "Maria", "Mohamed", "Laura", "Jose", "Daniela",
+        "Pedro", "Valeria", "Andres", "Camila", "Ricardo", "Sofia"
+    };
+
+    static String[] apellidos = {
+        "Lopez", "Ramirez", "Fernandez", "Gomez", "Soto", "Vargas", "Morales",
+        "Jimenez", "Castro", "Herrera", "Mendoza", "Rojas"
+    };
+
+    private static String generarNombreCompleto() {
+        int indiceNombre = random.nextInt(nombres.length);
+        int indiceApellido = random.nextInt(apellidos.length);
+        String nombre = nombres[indiceNombre];
+        String apellido = apellidos[indiceApellido];
+        return nombre + " " + apellido;
     }
-    
-    public void ejecutarGeneracion() {
-        int cantidad = 10; 
 
-        for(int i = 0; i < cantidad; i++) {
+    public static void cargarSocios(int cantidad) {
+
+        for (int i = 0; i < cantidad; i++) {
+
             String nombre = generarNombreCompleto();
             Socio socio = new Socio(nombre);
 
             int probabilidad = random.nextInt(100);
 
             if (probabilidad < 70) {
-                socio.setEstadoSocio(Estadosocio.ACTIVO); 
+                socio.setEstadoSocio(Estadosocio.ACTIVO);
             } else {
                 socio.setEstadoSocio(Estadosocio.MOROSO);
-                socio.setMultasAcumuladas(5000 + random.nextInt(5000));
+                int multa = 5000 + random.nextInt(5000);
+                socio.setMultasAcumuladas(multa);
             }
 
             listaSocios.add(socio);
         }
+    }
 
-        for (Socio s : listaSocios) {
-            System.out.println(s.getIdSocio() + " - " + s.getNombreCompleto() + " - " + s.getEstadoSocio());
+    public static void mostrarSocios() {
+        for (int i = 0; i < listaSocios.size(); i++) {
+            Socio s = listaSocios.get(i);
+
+            String linea = s.getIdSocio() + " | " + s.getNombreCompleto() + " | " +
+                           s.getFechaRegistro() + " | " + s.getEstadoSocio();
+
+            if (s.getMultasAcumuladas() > 0) {
+                linea = linea + " | Multa: " + s.getMultasAcumuladas();
+            }
+
+            System.out.println(linea);
         }
     }
 }
+
 

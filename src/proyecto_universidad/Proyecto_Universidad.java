@@ -19,6 +19,13 @@ public class Proyecto_Universidad {
 
         Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario
   
+    // Parte para generar la cantidad de socios
+        String input = JOptionPane.showInputDialog("Cuantos socios desea generar?");
+        int cantidad = Integer.parseInt(input);
+
+        GeneradorSocios.cargarSocios(cantidad);
+        GeneradorSocios.mostrarSocios();
+    
     }
     
 

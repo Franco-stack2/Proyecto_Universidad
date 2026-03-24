@@ -10,6 +10,10 @@ public class Socio
     private static int contadorIdSocio = 1;
     private String idSocio;
     private String nombreCompleto;
+
+    public String getFechaRegistro() {
+        return fechaRegistro;
+    }
     private String fechaRegistro;
     private Estadosocio estadoSocio;
     private double multasAcumuladas;
