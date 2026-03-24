@@ -20,7 +20,7 @@ public class Menu {
             """
             MENU PRINCIPAL
             1. Biblioteca
-            2. Salir
+            2. Ingresar al menu de prestamos
             """);
 
             switch(opcion){
@@ -34,14 +34,43 @@ public class Menu {
                     break;
 
                 case "2":
-                    JOptionPane.showMessageDialog(null, "Saliendo...");
-                    break;
+               String opcionPrestamo;
 
-                default:
-                    JOptionPane.showMessageDialog(null, "Opcion invalida");
-            }
+              do{ // se realiza un do para que el menu se ejecute al menos una vez
 
-        }while(!opcion.equals("2"));
+        opcionPrestamo = JOptionPane.showInputDialog("""
+            MENU PRESTAMOS
+
+            1. Registrar Prestamo
+            2. Registrar Devolucion
+            3. Consultar Prestamo por ID
+            4. Salir
+        """);
+
+        switch(opcionPrestamo){
+
+            case "1":
+                GestionPrestamos.registrarPrestamo(libros, totalLibros);
+                break;
+
+            case "2":
+                GestionPrestamos.registrarDevolucion();
+                break;
+
+            case "3":
+                GestionPrestamos.consultarPrestamo();
+                break;
+
+            case "4":
+                break;
+
+            default:
+                JOptionPane.showMessageDialog(null, "Opcion invalida");
+        }
+
+    }while(!opcionPrestamo.equals("4"));
+
+    break;
     }
     
     
