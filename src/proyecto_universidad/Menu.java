@@ -71,7 +71,23 @@ public class Menu {
                     break;
 
                 case "3":
+                    String opcionSocio;
+                    
+                    opcionSocio = JOptionPane.showInputDialog("""
+                            MENU PRESTAMOS
+
+                            1. Registrar Nuevo Socio
+                            2. Consultar Datos de Socio
+                            3. Actualizar Información de Socio
+                            4. Gestionar Multas de Socio
+                            5. Salir                                  
+                        """);
+
+                    break;
+
+                case "4":
                     JOptionPane.showMessageDialog(null, "Saliendo...");
+
                     break;
 
                 default:
