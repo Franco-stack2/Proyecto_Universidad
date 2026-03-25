@@ -82,7 +82,7 @@ public class Generadorlibros {
 
 }
 
-    public static int cargarLibros(Libro[] libros, int totalLibros, int cantidad){
+    public static int cargarLibros(Libro[] libros, int totalLibros, int cantidad){ // si la cantidad de libros supera la de 50 se hace el print de limite alcanzado
 
     for(int i = 0; i < cantidad; i++){
 
