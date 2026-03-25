@@ -89,6 +89,32 @@ public class Menu {
                             4. Gestionar Multas de Socio
                             5. Salir                                  
                         """);
+                    
+                    switch (opcionSocio){
+                    
+                        case "1":
+                            GestionSocios.registrarSocio();
+                            break;
+                            
+                        case "2":
+                            
+                            break;
+                            
+                          case "3":
+                            
+                            break;
+                                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    }
 
                     break;
                     
