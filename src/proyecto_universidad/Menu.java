@@ -19,7 +19,9 @@ public class Menu {
                 MENU PRINCIPAL
                 1. Biblioteca
                 2. Ingresar al menu de prestamos
-                3. Salir
+                3. Ingresar al Catalogo                                 
+                4.Ingresar al menu de socios                                                                      
+                5. Salir
             """);
 
             switch (opcion) {
@@ -71,10 +73,15 @@ public class Menu {
                     break;
 
                 case "3":
-                    String opcionSocio;
+                 JOptionPane.showMessageDialog(null, "Saliendo...");
+
+                    break;
+
+                case "4":
+                         String opcionSocio;
                     
                     opcionSocio = JOptionPane.showInputDialog("""
-                            MENU PRESTAMOS
+                            MENU SOCIOS
 
                             1. Registrar Nuevo Socio
                             2. Consultar Datos de Socio
@@ -84,8 +91,8 @@ public class Menu {
                         """);
 
                     break;
-
-                case "4":
+                    
+                  case "5":
                     JOptionPane.showMessageDialog(null, "Saliendo...");
 
                     break;
