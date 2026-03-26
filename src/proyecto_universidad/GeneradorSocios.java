@@ -31,7 +31,7 @@ public class GeneradorSocios {
 
         for (int i = 0; i < cantidad; i++) {
              if(listaSocios.size() >= 30){
-            JOptionPane.showMessageDialog(null, "Limite maximo de socios alcanzado (30)");
+            JOptionPane.showMessageDialog(null, "Limite maximo de socios alcanzado (30)"); // se valida que el limite tiene que ser 30 nada mas
             return;
         }
 
