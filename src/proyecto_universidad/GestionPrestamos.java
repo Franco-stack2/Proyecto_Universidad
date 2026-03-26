@@ -59,10 +59,10 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             JOptionPane.showMessageDialog(null, "El libro no está disponible");
             return;}
          
-        if(libroEncontrado.getEstadoLibro() != EstadoLibro.EXTRAVIADO){
-            JOptionPane.showMessageDialog(null, "El libro no está extraviado");
+        if(libroEncontrado.getEstadoLibro() == EstadoLibro.EXTRAVIADO){
+            JOptionPane.showMessageDialog(null, "El libro está extraviado");
             return;}
-        if(libroEncontrado.getEstadoLibro() != EstadoLibro.EN_REPARACION){
+        if(libroEncontrado.getEstadoLibro() == EstadoLibro.EN_REPARACION){
             JOptionPane.showMessageDialog(null, "El libro no está en reparacion");
             return;}
 
