@@ -23,7 +23,7 @@ public class Proyecto_Universidad {
 
         totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
 
-        Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario
+        Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
  
  
     }
