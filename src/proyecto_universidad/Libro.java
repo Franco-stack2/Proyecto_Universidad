@@ -60,7 +60,10 @@ contadorISBN++;
         vecesPrestado++;
     }
 
- 
+  public void extraviado() {
+        estadoLibro = EstadoLibro.EXTRAVIADO;
+        vecesPrestado++;
+    }
  
  
     public void devolver() {

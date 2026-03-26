@@ -22,6 +22,11 @@ public class Proyecto_Universidad {
         int totalLibros = 0;
 
         totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
+        
+        if (totalLibros >= 2) {
+        libros[0].devolver();
+        libros[1].extraviado();
+}
 
         Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
  
