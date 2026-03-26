@@ -50,15 +50,21 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             }
         }
 
-        if(libroEncontrado == null){
+        if(libroEncontrado == null){ // de aqui todo los ifs tienen el objetivo de darle al usuario retroalimentacion de que los libros no estan disponibles
             JOptionPane.showMessageDialog(null, "El libro no existe");
             return;
         }
 
-        if(libroEncontrado.getEstadoLibro() != EstadoLibro.DISPONIBLE){
+        if(libroEncontrado.getEstadoLibro() != EstadoLibro.DISPONIBLE){ 
             JOptionPane.showMessageDialog(null, "El libro no está disponible");
-            return;
-        }
+            return;}
+         
+        if(libroEncontrado.getEstadoLibro() != EstadoLibro.EXTRAVIADO){
+            JOptionPane.showMessageDialog(null, "El libro no está disponible");
+            return;}
+        if(libroEncontrado.getEstadoLibro() != EstadoLibro.EN_REPARACION){
+            JOptionPane.showMessageDialog(null, "El libro no está disponible");
+            return;}
 
        // se crea el prestamo utilizando el constructor de "Prestamo"
         Prestamo p = new Prestamo(socioEncontrado, libroEncontrado, "");
