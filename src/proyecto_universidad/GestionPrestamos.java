@@ -60,10 +60,10 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             return;}
          
         if(libroEncontrado.getEstadoLibro() != EstadoLibro.EXTRAVIADO){
-            JOptionPane.showMessageDialog(null, "El libro no está disponible");
+            JOptionPane.showMessageDialog(null, "El libro no está extraviado");
             return;}
         if(libroEncontrado.getEstadoLibro() != EstadoLibro.EN_REPARACION){
-            JOptionPane.showMessageDialog(null, "El libro no está disponible");
+            JOptionPane.showMessageDialog(null, "El libro no está en reparacion");
             return;}
 
        // se crea el prestamo utilizando el constructor de "Prestamo"
