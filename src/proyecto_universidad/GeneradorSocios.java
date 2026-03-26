@@ -3,7 +3,7 @@ package proyecto_universidad;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import javax.swing.JOptionPane;
 
 public class GeneradorSocios {
     static ArrayList<Socio> listaSocios = new ArrayList<>();
@@ -30,6 +30,11 @@ public class GeneradorSocios {
     public static void cargarSocios(int cantidad) {
 
         for (int i = 0; i < cantidad; i++) {
+             if(listaSocios.size() >= 30){
+            JOptionPane.showMessageDialog(null, "Limite maximo de socios alcanzado (30)");
+            return;
+        }
+
 
             String nombre = generarNombreCompleto();
             Socio socio = new Socio(nombre);
