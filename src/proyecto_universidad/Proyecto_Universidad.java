@@ -24,7 +24,7 @@ public class Proyecto_Universidad {
         totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
         
         if (totalLibros >= 2) {
-        libros[0].devolver();
+        libros[0].prestar();
         libros[1].extraviado();
 }
 
