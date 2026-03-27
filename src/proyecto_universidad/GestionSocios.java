@@ -19,7 +19,7 @@ public class GestionSocios {
     
      public static void registrarSocio() {
      registrarNuevoSocio();
-     generarIdUnico();
+     //generarIdUnico();
      generarNombre();
      fechaActual();
      mensaje();
@@ -34,35 +34,13 @@ public class GestionSocios {
       
      }
      
-     public static String generarIdUnico() {
+    // public static String generarIdUnico() {}
 
-    String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    String id;
-    boolean repetido;
+  
 
-    do {
-        String randomID = "";
+      
 
-        for (int i = 0; i < 4; i++) {
-            int pos = (int)(Math.random() * caracteres.length());
-            randomID += caracteres.charAt(pos);
-        }
-
-        id = "SOC-" + randomID;
-
-        repetido = false;
-
-        for (Socio s : listaSocios) {
-            if (s.getIdSocio().equals(id)) {
-                repetido = true;
-                break;
-            }
-        }
-
-    } while (repetido); 
-
-    return id;}
-
+    
     
     
     
@@ -95,15 +73,15 @@ public class GestionSocios {
 }
     
     public static String mensaje(){
-        String id = generarIdUnico();
+      // String id = generarIdUnico();
         String nombre = generarNombre();
         String fecha = fechaActual();
        System.out.println("Socio registrado correctamente");
-    System.out.println("ID: " + id  );
+    //System.out.println("ID: " + id  );
     System.out.println("Nombre: " + nombre);
     System.out.println("Fecha: " + fecha);
     System.out.println("Estado: "   );
-    return id;
+    return nombre;
     
     
     }

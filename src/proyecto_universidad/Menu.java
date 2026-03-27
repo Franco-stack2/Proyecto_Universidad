@@ -99,7 +99,8 @@ do {
                         break;
 
                     case "2":
-                        GestionSocios.ConsultarSocioID();
+                       // GestionSocios.ConsultarSocioID();
+                        JOptionPane.showMessageDialog(null, "Pendiente");
                         break;
 
                     case "3":
