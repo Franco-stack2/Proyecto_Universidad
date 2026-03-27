@@ -99,11 +99,11 @@ do {
                         break;
 
                     case "2":
-                        JOptionPane.showMessageDialog(null, "Pendiente");
+                        GestionSocios.ConsultarSocioID();
                         break;
 
                     case "3":
-                        JOptionPane.showMessageDialog(null, "Pendiente");
+                        GestionSocios.actualizarEstadoSocio();
                         break;
 
                     case "4":

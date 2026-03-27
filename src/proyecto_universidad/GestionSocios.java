@@ -102,11 +102,136 @@ public class GestionSocios {
     System.out.println("ID: " + id  );
     System.out.println("Nombre: " + nombre);
     System.out.println("Fecha: " + fecha);
-    System.out.println("Estado: " );
+    System.out.println("Estado: "   );
     return id;
     
     
     }
+    
+    public static void ConsultarSocioID(){
+        
+          while (true) {
+            String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
+
+            if (idBuscado == null) {
+                return;
+            }
+
+            boolean encontrado = false;
+
+            for (Socio s : GeneradorSocios.listaSocios) {
+                if (s.getIdSocio().equalsIgnoreCase(idBuscado)) {
+                     JOptionPane.showMessageDialog(null,
+                    "ID Socio: " + s.getIdSocio() + "\n"
+                    + "Nombre: " + s.getNombreCompleto() + "\n"
+                    + "Fecha Registro: " + s.getFechaRegistro() + "\n"
+                    + "Estado: " + s.getEstadoSocio() + "\n"
+                    + "Multas Acumuladas: " + s.getMultasAcumuladas() + "\n"
+                    + "Libros Prestados Actualmente: " + s.getCantidadLibrosPrestadosActual());
+                }
+
+            }
+    
+    
+    
+    
+    }
+    }
+    
+    
+    public static void actualizarEstadoSocio(){
+         String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
+
+            if (idBuscado == null) {
+                return;
+            }
+
+            boolean encontrado = false;
+            
+            Socio socioEncontrado =null;
+
+            for (Socio s : GeneradorSocios.listaSocios) {
+                if (s.getIdSocio().equalsIgnoreCase(idBuscado)) {
+                     JOptionPane.showMessageDialog(null, "Estado: " + s.getEstadoSocio());
+                     socioEncontrado=s;
+                }
+
+            }
+            
+            
+                Object[] opciones = {"ACTIVO", "SUSPENDIDO", "INACTIVO"};
+                
+        String estadoActual = socioEncontrado.getEstadoSocio().toString();
+
+        int opcion = JOptionPane.showOptionDialog(
+                null,
+                "Estado actual: " + estadoActual + "\nSeleccione el nuevo estado:",
+                "Actualizar Estado de Socio",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]
+        );
+        
+        switch (opcion){
+            
+            case 0:
+                socioEncontrado.setEstadoSocio(Estadosocio.ACTIVO);
+                break;
+                
+            case 1:
+                socioEncontrado.setEstadoSocio(Estadosocio.SUSPENDIDO);
+                break;
+               
+                
+            case 2:
+                socioEncontrado.setEstadoSocio(Estadosocio.INACTIVO);
+                break;
+               
+
+        }
+            JOptionPane.showMessageDialog(null,
+                    "ID Socio: " + socioEncontrado.getIdSocio() + "\n"
+                    + "Nombre: " + socioEncontrado.getNombreCompleto() + "\n"
+                    + "Fecha Registro: " + socioEncontrado.getFechaRegistro() + "\n"
+                    + "Estado: " + socioEncontrado.getEstadoSocio() + "\n"
+                    + "Multas Acumuladas: " + socioEncontrado.getMultasAcumuladas() + "\n"
+                    + "Libros Prestados Actualmente: " + socioEncontrado.getCantidadLibrosPrestadosActual());
+        
+
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
           
 }
 
