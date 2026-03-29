@@ -6,15 +6,21 @@ package proyecto_universidad;
 
 /**
  *
- * @author Usuario
+ * @author Franco
  */
 public class Generadorlibros {
-    
-    static Libro[] libros = new Libro[50]; // se realizan los static ya que esto representa un beneficio en ahorrarnos en crear el objeto uno por uno
-      static Socio[] socios = new Socio[30]; // por ejemplo el objeto libros se comprende como que hay 50 libros y no hay que crear libro1,libro2 que es mas tedioso
-      static Prestamo[] prestamos = new Prestamo[50];
 
-      static String[] titulos = {
+ 
+
+    
+      private Libro[] libros = new Libro[50]; // se realizan los static ya que esto representa un beneficio en ahorrarnos en crear el objeto uno por uno
+      private Socio[] socios = new Socio[30]; // por ejemplo el objeto libros se comprende como que hay 50 libros y no hay que crear libro1,libro2 que es mas tedioso
+      private Prestamo[] prestamos = new Prestamo[50];
+      
+      private int totalLibros;
+    
+
+      private String[] titulos = {
       "Cien Anios de Soledad",
       "El Principito",
       "1984",
@@ -25,7 +31,7 @@ public class Generadorlibros {
       "Fahrenheit 451"
        };
 
-      static String[] autores = {
+      private String[] autores = {
       "Gabriel Garcia Marquez",
       "Antoine de Saint Exupery",
       "George Orwell",
@@ -36,27 +42,17 @@ public class Generadorlibros {
       "Ray Bradbury"
       };
 
-      static String[] editoriales = {
+      private String[] editoriales = {
       "Planeta",
       "Penguin",
       "Alfaguara",
       "Anagrama",
       "Random House"
       };
-    // lo siguiente seria la lista de socios con nombres y apellidos
-      static String[] nombres = {
-      "Carlos","Ana","Luis","Maria","Mohamed","Laura","Jose","Daniela"
-      };
 
-      static String[] apellidos = {
-      "Lopez","Ramirez","Fernandez","Gomez","Soto","Vargas","Morales"
-      };
+
     
-      static int totalLibros = 0; // este inicializador nos ayuda a mantener los valores iniciales en cero y asegurarnos de que el conteo empieze correctamente
-      static int totalSocios = 0; // tambien se utiliza el static para que esta variable pueda ser utilizada en otros metodos y no este desconectada
-      static int totalPrestamos = 0;
-    
-          public static Libro generarLibro(){
+          private  Libro generarLibro(){
 
         Genero[] generos = Genero.values();
 
@@ -74,7 +70,7 @@ public class Generadorlibros {
         
  
           
-    public static void mostrarBiblioteca(Libro[] libros, int totalLibros){
+    public void mostrarBiblioteca(){
 
     for(int i = 0; i < totalLibros; i++){
         libros[i].mostrarLibro();
@@ -82,21 +78,78 @@ public class Generadorlibros {
 
 }
 
-    public static int cargarLibros(Libro[] libros, int totalLibros, int cantidad){ // si la cantidad de libros supera la de 50 se hace el print de limite alcanzado
+    public int cargarLibros(int cantidad){ // si la cantidad de libros supera la de 50 se hace el print de limite alcanzado
 
     for(int i = 0; i < cantidad; i++){
 
+        
         if(totalLibros >= 50){
             System.out.println("Limite alcanzado");
             return totalLibros;
         }
 
-        libros[totalLibros] = Generadorlibros.generarLibro();
+        libros[totalLibros] = generarLibro();
 
         totalLibros++;
     }
 
     return totalLibros;
 }
+
+        public int getTotalLibros() {
+        return totalLibros;
+    }
+
+    public void setTotalLibros(int totalLibros) {
+        this.totalLibros = totalLibros;
+    }
+    
+       public Libro[] getLibros() {
+        return libros;
+    }
+
+    public void setLibros(Libro[] libros) {
+        this.libros = libros;
+    }
+
+    public Socio[] getSocios() {
+        return socios;
+    }
+
+    public void setSocios(Socio[] socios) {
+        this.socios = socios;
+    }
+
+    public Prestamo[] getPrestamos() {
+        return prestamos;
+    }
+
+    public void setPrestamos(Prestamo[] prestamos) {
+        this.prestamos = prestamos;
+    }
+
+    public String[] getTitulos() {
+        return titulos;
+    }
+
+    public void setTitulos(String[] titulos) {
+        this.titulos = titulos;
+    }
+
+    public String[] getAutores() {
+        return autores;
+    }
+
+    public void setAutores(String[] autores) {
+        this.autores = autores;
+    }
+
+    public String[] getEditoriales() {
+        return editoriales;
+    }
+
+    public void setEditoriales(String[] editoriales) {
+        this.editoriales = editoriales;
+    }
 
 }

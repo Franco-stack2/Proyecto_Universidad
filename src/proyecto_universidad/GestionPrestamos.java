@@ -68,6 +68,8 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
 
        // se crea el prestamo utilizando el constructor de "Prestamo"
         Prestamo p = new Prestamo(socioEncontrado, libroEncontrado, "");
+        
+        
 
         listaPrestamos.add(p);
 
@@ -82,6 +84,7 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
         System.out.println("Socio: " + socioEncontrado.getNombreCompleto());
         System.out.println("Libro: " + libroEncontrado.getTitulo());
         System.out.println("Estado: " + p.getEstadoPrestamo());
+        
     }
     
     public static void consultarPrestamo(){

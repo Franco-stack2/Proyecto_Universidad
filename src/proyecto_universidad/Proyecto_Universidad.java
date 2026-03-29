@@ -17,18 +17,19 @@ public class Proyecto_Universidad {
 
         GeneradorSocios.cargarSocios(cantidad);
         GeneradorSocios.mostrarSocios();
-        
-      Libro[] libros = new Libro[50];
-        int totalLibros = 0;
 
-        totalLibros = Generadorlibros.cargarLibros(libros, totalLibros, 10);
+       Generadorlibros generador = new Generadorlibros();
+       generador.cargarLibros(10);
         
-        if (totalLibros >= 2) {
-        libros[0].prestar();
-        libros[1].extraviado();
+       Libro[] libros = generador.getLibros(); // se llama a get Libros con el objeto generador ya que libros es private y solo se puede llamar con un get 
+        int totalLibros = generador.getTotalLibros();
+       
+if (generador.getTotalLibros() >= 2) {
+    libros[0].prestar();
+    libros[1].extraviado();
 }
-
-        Menu.menuPrincipal(libros, totalLibros); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
+       Menu menu = new Menu(); // al ser el metodo menuprincipal public pero no static hay que crear el objeto menu para poder llamarlo 
+       menu.menuPrincipal(generador); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
  
  
     }

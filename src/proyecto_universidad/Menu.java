@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 
-    public static void menuPrincipal(Libro[] libros, int totalLibros) {
+    public void menuPrincipal(Generadorlibros generador) {
 
         String opcion;
 
@@ -27,7 +27,7 @@ do {
     switch (opcion) {
 
         case "1":
-            Generadorlibros.mostrarBiblioteca(libros, totalLibros);
+            generador.mostrarBiblioteca();
             GeneradorSocios.resumenSocios();
             JOptionPane.showMessageDialog(null, "Informacion mostrada en consola");
             break;
@@ -50,7 +50,7 @@ do {
                 switch (opcionPrestamo) { 
 
                     case "1":
-                        GestionPrestamos.registrarPrestamo(libros, totalLibros);
+                        GestionPrestamos.registrarPrestamo(generador.getLibros(),generador.getTotalLibros());
                         break;
 
                     case "2":
