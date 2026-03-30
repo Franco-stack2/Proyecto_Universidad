@@ -29,7 +29,7 @@ public class Proyecto_Universidad {
        generador.cargarLibros(10);
         
        Libro[] libros = generador.getLibros(); // se llama a get Libros con el objeto generador ya que libros es private y solo se puede llamar con un get 
-        int totalLibros = generador.getTotalLibros();
+    
        
 if (generador.getTotalLibros() >= 2) {
     libros[0].prestar();
