@@ -6,20 +6,21 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class GeneradorSocios {
-    static ArrayList<Socio> listaSocios = new ArrayList<>();
-    static Random random = new Random();
+    private ArrayList<Socio> listaSocios = new ArrayList<>();
+    private Random random = new Random();
 
-    static String[] nombres = {
+    private String[] nombres = {
         "Carlos", "Ana", "Luis", "Maria", "Mohamed", "Laura", "Jose", "Daniela",
         "Pedro", "Valeria", "Andres", "Camila", "Ricardo", "Sofia"
     };
 
-    static String[] apellidos = {
+    private String[] apellidos = {
         "Lopez", "Ramirez", "Fernandez", "Gomez", "Soto", "Vargas", "Morales",
         "Jimenez", "Castro", "Herrera", "Mendoza", "Rojas"
     };
 
-    private static String generarNombreCompleto() {
+
+    public  String generarNombreCompleto() {
         int indiceNombre = random.nextInt(nombres.length);
         int indiceApellido = random.nextInt(apellidos.length);
         String nombre = nombres[indiceNombre];
@@ -27,7 +28,7 @@ public class GeneradorSocios {
         return nombre + " " + apellido;
     }
 
-    public static void cargarSocios(int cantidad) {
+    public void cargarSocios(int cantidad) {
 
         for (int i = 0; i < cantidad; i++) {
              if(listaSocios.size() >= 30){
@@ -53,7 +54,7 @@ public class GeneradorSocios {
         }
     }
 
-    public static void mostrarSocios() {
+    public void mostrarSocios() {
         for (int i = 0; i < listaSocios.size(); i++) {
             Socio s = listaSocios.get(i);
 
@@ -70,7 +71,7 @@ public class GeneradorSocios {
         
     }
     
-    public static void resumenSocios(){
+    public  void resumenSocios(){
 
     int total = listaSocios.size();
     int activos = 0;
@@ -95,6 +96,39 @@ public class GeneradorSocios {
     System.out.println("Socios Morosos: " + morosos);
 }
  
+    
+    
+    public ArrayList<Socio> getListaSocios() {
+        return listaSocios;
+    }
+
+    public void setListaSocios(ArrayList<Socio> listaSocios) {
+        this.listaSocios = listaSocios;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public void setRandom(Random random) {
+        this.random = random;
+    }
+
+    public String[] getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String[] nombres) {
+        this.nombres = nombres;
+    }
+
+    public String[] getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String[] apellidos) {
+        this.apellidos = apellidos;
+    }
 }
 
 

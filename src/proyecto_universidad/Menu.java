@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 
-    public void menuPrincipal(Generadorlibros generador) {
+    public void menuPrincipal(Generadorlibros generador,GeneradorSocios socios,GestionPrestamos gestion,GestionSocios gestionsocios) {
 
         String opcion;
 
@@ -28,7 +28,7 @@ do {
 
         case "1":
             generador.mostrarBiblioteca();
-            GeneradorSocios.resumenSocios();
+            socios.resumenSocios();
             JOptionPane.showMessageDialog(null, "Informacion mostrada en consola");
             break;
 
@@ -36,6 +36,7 @@ do {
 
             String opcionPrestamo;
 
+          
             do { // se realiza un submenu en el case 2 con otro switch y sus respectivos casos y llamados a metodos de otras clases y objetos
 
                 opcionPrestamo = JOptionPane.showInputDialog("""
@@ -50,15 +51,15 @@ do {
                 switch (opcionPrestamo) { 
 
                     case "1":
-                        GestionPrestamos.registrarPrestamo(generador.getLibros(),generador.getTotalLibros());
+                        gestion.registrarPrestamo(generador.getLibros(),generador.getTotalLibros(),socios);
                         break;
 
                     case "2":
-                        GestionPrestamos.registrarDevolucion();
+                        gestion.registrarDevolucion();
                         break;
 
                     case "3":
-                        GestionPrestamos.consultarPrestamo();
+                         gestion.consultarPrestamo();
                         break;
 
                     case "4":
@@ -95,7 +96,7 @@ do {
                 switch (opcionSocio) {
 
                     case "1":
-                        GestionSocios.registrarSocio();
+                        gestionsocios.registrarSocio(socios);
                         break;
 
                     case "2":
@@ -104,7 +105,7 @@ do {
                         break;
 
                     case "3":
-                        GestionSocios.actualizarEstadoSocio();
+                        GestionSocios.actualizarEstadoSocio(socios);
                         break;
 
                     case "4":

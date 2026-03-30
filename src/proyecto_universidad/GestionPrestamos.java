@@ -10,16 +10,16 @@ import java.util.ArrayList;
 public class GestionPrestamos {
 static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
 
-    public static void registrarPrestamo(Libro[] libros, int totalLibros){
+    public void registrarPrestamo(Libro[] libros, int totalLibros,GeneradorSocios socios){
 
         
         String id = JOptionPane.showInputDialog("Ingrese ID del socio:"); // se le socilita al usuario el id del socio
 
         Socio socioEncontrado = null;
 
-        for(int i = 0; i < GeneradorSocios.listaSocios.size(); i++){
+        for(int i = 0; i < socios.getListaSocios().size(); i++){
 
-            Socio s = GeneradorSocios.listaSocios.get(i);
+            Socio s = socios.getListaSocios().get(i);
 
             if(s.getIdSocio().equals(id)){
                 socioEncontrado = s;
@@ -87,7 +87,7 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
         
     }
     
-    public static void consultarPrestamo(){
+    public  void consultarPrestamo(){
 
     String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
     int id = Integer.parseInt(input);
@@ -109,7 +109,7 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
 
     JOptionPane.showMessageDialog(null, "Prestamo no existe");
 }
-    public static void registrarDevolucion(){
+    public void registrarDevolucion(){
 
     String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
     int id = Integer.parseInt(input);

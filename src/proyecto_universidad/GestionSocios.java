@@ -17,17 +17,18 @@ import java.time.format.DateTimeFormatter;
 public class GestionSocios {
     
     
-     public static void registrarSocio() {
-     registrarNuevoSocio();
+     public void registrarSocio(GeneradorSocios socios) {
+     registrarNuevoSocio(socios);
      //generarIdUnico();
-     generarNombre();
+     generarNombre(socios);
      fechaActual();
-     mensaje();
+     mensaje(socios);
      }
     
-    static ArrayList<Socio> listaSocios = new ArrayList<>();
-     public static void registrarNuevoSocio() {
-         if (GeneradorSocios.listaSocios.size() >= 30) {
+     private ArrayList<Socio> listaSocios = new ArrayList<>();
+     
+     public void registrarNuevoSocio(GeneradorSocios socios) {
+         if (socios.getListaSocios().size() >= 30) {
              System.out.println("Límite máximo de socios alcanzado");
              return;
          }
@@ -44,15 +45,15 @@ public class GestionSocios {
     
     
     
-    static Random random = new Random();
+     Random random = new Random();
 
-    public static String generarNombre() {
+    public String generarNombre(GeneradorSocios socios) {
 
-        int i = random.nextInt(GeneradorSocios.nombres.length);
-        int j = random.nextInt(GeneradorSocios.apellidos.length);
+        int i = random.nextInt(socios.getNombres().length);
+        int j = random.nextInt(socios.getApellidos().length);
 
-        String nombre = GeneradorSocios.nombres[i];
-        String apellido = GeneradorSocios.apellidos[j];
+        String nombre = socios.getNombres()[i];
+        String apellido = socios.getApellidos()[j];
 
         return nombre + " " + apellido;
     }
@@ -60,7 +61,7 @@ public class GestionSocios {
     
     
     
-    public static String fechaActual(){
+    public String fechaActual(){
         
          LocalDateTime ahora = LocalDateTime.now();
 
@@ -72,9 +73,9 @@ public class GestionSocios {
         
 }
     
-    public static String mensaje(){
+    public String mensaje(GeneradorSocios socios){
       // String id = generarIdUnico();
-        String nombre = generarNombre();
+        String nombre = generarNombre(socios);
         String fecha = fechaActual();
        System.out.println("Socio registrado correctamente");
     //System.out.println("ID: " + id  );
@@ -86,7 +87,7 @@ public class GestionSocios {
     
     }
     
-    public static void ConsultarSocioID(){
+    public static void ConsultarSocioID(GeneradorSocios socios){
         
           while (true) {
             String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
@@ -97,7 +98,7 @@ public class GestionSocios {
 
             boolean encontrado = false;
 
-            for (Socio s : GeneradorSocios.listaSocios) {
+            for (Socio s : socios.getListaSocios()) {
                 if (s.getIdSocio().equalsIgnoreCase(idBuscado)) {
                      JOptionPane.showMessageDialog(null,
                     "ID Socio: " + s.getIdSocio() + "\n"
@@ -117,7 +118,7 @@ public class GestionSocios {
     }
     
     
-    public static void actualizarEstadoSocio(){
+    public static void actualizarEstadoSocio(GeneradorSocios socios){
          String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
 
             if (idBuscado == null) {
@@ -128,7 +129,7 @@ public class GestionSocios {
             
             Socio socioEncontrado =null;
 
-            for (Socio s : GeneradorSocios.listaSocios) {
+            for (Socio s : socios.getListaSocios()) {
                 if (s.getIdSocio().equalsIgnoreCase(idBuscado)) {
                      JOptionPane.showMessageDialog(null, "Estado: " + s.getEstadoSocio());
                      socioEncontrado=s;
