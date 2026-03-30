@@ -118,7 +118,7 @@ public class GestionSocios {
     }
     
     
-    public static void actualizarEstadoSocio(GeneradorSocios socios){
+    public void actualizarEstadoSocio(GeneradorSocios socios){
          String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
 
             if (idBuscado == null) {

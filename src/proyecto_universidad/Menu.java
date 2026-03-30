@@ -105,7 +105,7 @@ do {
                         break;
 
                     case "3":
-                        GestionSocios.actualizarEstadoSocio(socios);
+                        gestionsocios.actualizarEstadoSocio(socios);
                         break;
 
                     case "4":

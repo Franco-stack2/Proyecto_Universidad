@@ -71,7 +71,7 @@ public class GeneradorSocios {
         
     }
     
-    public  void resumenSocios(){
+    public void resumenSocios(){
 
     int total = listaSocios.size();
     int activos = 0;
