@@ -16,8 +16,8 @@ public class Proyecto_Universidad {
         int cantidad = Integer.parseInt(input);
     
         
-        GestionPrestamos gestion = new GestionPrestamos();
-        
+        GestionPrestamos gestion = new GestionPrestamos(); // se crean los objetos ya que todo se encuentra encapsulado por lo tanto para el menu y las otras clases 
+        // se le llaman estos objetos
         GeneradorSocios socios = new GeneradorSocios();
         
         GestionSocios gestionsocios = new GestionSocios();
