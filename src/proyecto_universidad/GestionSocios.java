@@ -4,7 +4,6 @@
  */
 package proyecto_universidad;
 
-import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
@@ -18,22 +17,14 @@ public class GestionSocios {
     
     
      public void registrarSocio(GeneradorSocios socios) {
-     registrarNuevoSocio(socios);
      //generarIdUnico();
      generarNombre(socios);
      fechaActual();
      mensaje(socios);
      }
     
-     private ArrayList<Socio> listaSocios = new ArrayList<>();
-     
-     public void registrarNuevoSocio(GeneradorSocios socios) {
-         if (socios.getListaSocios().size() >= 30) {
-             System.out.println("Límite máximo de socios alcanzado");
-             return;
-         }
-      
-     }
+    
+
      
     // public static String generarIdUnico() {}
 
@@ -73,18 +64,21 @@ public class GestionSocios {
         
 }
     
-    public String mensaje(GeneradorSocios socios){
+    public void mensaje(GeneradorSocios socios){
       // String id = generarIdUnico();
+      if (socios.getListaSocios().size() >= 30) {
+             System.out.println("Limite maximo de socios alcanzado");
+         }else if(socios.getListaSocios().size() < 30){
+             
         String nombre = generarNombre(socios);
         String fecha = fechaActual();
+        Socio nuevoSocio = new Socio(nombre); // se crea el objeto nuevo socio donde solo se le pasa el nombre al objeto Socio donde el constructor hace el resto
+        socios.getListaSocios().add(nuevoSocio); // se agrega a la lista privada que se encuentra en socios
        System.out.println("Socio registrado correctamente");
     //System.out.println("ID: " + id  );
     System.out.println("Nombre: " + nombre);
     System.out.println("Fecha: " + fecha);
-    System.out.println("Estado: "   );
-    return nombre;
-    
-    
+    System.out.println("Estado: "   );}
     }
     
     public static void ConsultarSocioID(GeneradorSocios socios){
