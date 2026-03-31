@@ -22,11 +22,13 @@ public class Proyecto_Universidad {
         
         GestionSocios gestionsocios = new GestionSocios();
         
+        
         socios.cargarSocios(cantidad);
         socios.mostrarSocios();
 
        Generadorlibros generador = new Generadorlibros();
        generador.cargarLibros(10);
+      
         
        Libro[] libros = generador.getLibros(); // se llama a get Libros con el objeto generador ya que libros es private y solo se puede llamar con un get 
     

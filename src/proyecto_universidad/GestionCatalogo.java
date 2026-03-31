@@ -31,7 +31,7 @@ public class GestionCatalogo
                     break;
                     
                 case "3":
-                    editarLibro(generador);
+                   // editarLibro(generador);
                     break;
                     
                 case "4":
@@ -62,10 +62,10 @@ public class GestionCatalogo
             return; // Usuario canceló
         }
 
-        // Buscar libro
+         Buscar libro
         Libro libro = buscarLibroPorISBN(generador, isbn);
 
-        if (libro == null) {
+       if (libro == null) {
             int opcion = JOptionPane.showConfirmDialog(
                     null,
                     "El libro con ISBN '" + isbn + "' no existe.\n¿Desea ingresar otro ISBN?",
@@ -79,9 +79,9 @@ public class GestionCatalogo
             return;
         }
 
-        // Validar si está prestado
+         Validar si está prestado
         if (libro.getEstadoLibro() == EstadoLibro.PRESTADO) {
-            JOptionPane.showMessageDialog(
+           JOptionPane.showMessageDialog(
                     null,
                     "El libro '" + libro.getTitulo() + "' (" + isbn + ") esta PRESTADO.\n"
                     + "No se puede cambiar su estado directamente aqui.\n"
@@ -142,9 +142,9 @@ public class GestionCatalogo
                 JOptionPane.showMessageDialog(null, "Opcion invalida");
         }
     }
-    // Buscar un libro por ISBN
+    // Buscar un libro por ISBN 
 }
-        
+       
 
     
     

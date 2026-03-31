@@ -16,17 +16,35 @@ import java.time.format.DateTimeFormatter;
 public class GestionSocios {
     
     
-     public void registrarSocio(GeneradorSocios socios) {
-     //generarIdUnico();
-     generarNombre(socios);
-     fechaActual();
+     private void registrarSocio(GeneradorSocios socios ) {
+         
+         
+    String id =generarIdUnico(socios);
+     String nombre =generarNombre(socios);
+    String fecha= fechaActual();
+    String estado = "ACTIVO";
+    double multa=0.0;
+    int libros = 0;
+    
+    
      mensaje(socios);
+        
      }
+     
+     public void ejecutarRegistro(GeneradorSocios socios) {
+    registrarSocio(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
+}
     
     
 
      
-    // public static String generarIdUnico() {}
+   private String generarIdUnico(GeneradorSocios socios) {
+       int x = socios.getListaSocios().size() + 1;//se llama a la lista de socios y se toma el ultimo valor de la lista para sumarle 1 
+    String id = "SOC-"+ String.format("%04d", x);
+    x++;
+    return id;
+
+    } // Este método se usa para generar el ID único.
 
   
 
@@ -38,7 +56,7 @@ public class GestionSocios {
     
      Random random = new Random();
 
-    public String generarNombre(GeneradorSocios socios) {
+    private String generarNombre(GeneradorSocios socios) {
 
         int i = random.nextInt(socios.getNombres().length);
         int j = random.nextInt(socios.getApellidos().length);
@@ -52,7 +70,7 @@ public class GestionSocios {
     
     
     
-    public String fechaActual(){
+    private String fechaActual(){
         
          LocalDateTime ahora = LocalDateTime.now();
 
@@ -64,8 +82,9 @@ public class GestionSocios {
         
 }
     
-    public void mensaje(GeneradorSocios socios){
-      // String id = generarIdUnico();
+    private void mensaje(GeneradorSocios socios){
+      String id = generarIdUnico(socios);
+      String estado = "ACTIVO";
       if (socios.getListaSocios().size() >= 30) {
              System.out.println("Limite maximo de socios alcanzado");
          }else if(socios.getListaSocios().size() < 30){
@@ -75,13 +94,14 @@ public class GestionSocios {
         Socio nuevoSocio = new Socio(nombre); // se crea el objeto nuevo socio donde solo se le pasa el nombre al objeto Socio donde el constructor hace el resto
         socios.getListaSocios().add(nuevoSocio); // se agrega a la lista privada que se encuentra en socios
        System.out.println("Socio registrado correctamente");
-    //System.out.println("ID: " + id  );
+    System.out.println("ID: " + id );
     System.out.println("Nombre: " + nombre);
     System.out.println("Fecha: " + fecha);
-    System.out.println("Estado: "   );}
+    System.out.println("Estado: " + estado  );}
+      
     }
     
-    public static void ConsultarSocioID(GeneradorSocios socios){
+    private static void ConsultarSocioID(GeneradorSocios socios){
         
           while (true) {
             String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
@@ -110,6 +130,10 @@ public class GestionSocios {
     
     }
     }
+    
+     public void Consultar(GeneradorSocios socios) {
+     ConsultarSocioID(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
+}
     
     
     public void actualizarEstadoSocio(GeneradorSocios socios){
@@ -180,6 +204,86 @@ public class GestionSocios {
     
     
     }
+    
+    
+    private void multas(GeneradorSocios socios){
+    
+           while (true) {
+            String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
+
+            if (idBuscado == null) {
+                return;
+            }
+
+            boolean encontrado = false;
+             Socio socioEncontrado =null;
+    
+    
+                for (Socio s : socios.getListaSocios()) {
+                if (s.getIdSocio().equalsIgnoreCase(idBuscado)) {
+                     JOptionPane.showMessageDialog(null, "Multas: " + s.getMultasAcumuladas());
+                     socioEncontrado = s;
+                }
+
+            }
+                
+                  
+             if(socioEncontrado.getMultasAcumuladas()!=0) {  
+     String op= JOptionPane.showInputDialog("""
+                    MENU SOCIOS
+
+                    1. Pagar la totalidad
+                    2. Pagar un monto parcial:
+                """);
+
+                switch (op) {
+
+                    case "1":
+                       socioEncontrado.setMultasAcumuladas(0);
+                       socioEncontrado.setEstadoSocio(Estadosocio.ACTIVO);
+                       
+                       JOptionPane.showMessageDialog(null, "Todas las multas quedaron pagadas");
+                       
+                       
+                        break;
+
+                    case "2":
+                        
+                        
+                        
+                        try { //Se realiza un try catch para verificar que el usuario no ingrese numero invalidos 
+                            double cantidad = Integer.parseInt(JOptionPane.showInputDialog("Indique la cantidad que desea pagar"));
+                            double monto = cantidad - socioEncontrado.getMultasAcumuladas();
+
+                            JOptionPane.showMessageDialog(null, "Su multa era de " + socioEncontrado.getMultasAcumuladas() + "Usted pago la cantidad de " + cantidad + " El total restante es de " + monto);
+                            JOptionPane.showMessageDialog(null, "El pago parcial se realizo con exito");
+
+                            if (monto == 0.0) { //si el monton da 0.0 se realiza los cambios de estado y multas 
+                                socioEncontrado.setEstadoSocio(Estadosocio.ACTIVO);
+                                socioEncontrado.setMultasAcumuladas(0.0);
+
+                            }
+
+                            break;
+
+                        } catch (NumberFormatException e) {
+
+                            JOptionPane.showMessageDialog(null,
+                                    "Error: Debe ingresar un número válido");
+
+                        }
+      
+    }
+    }else{
+             JOptionPane.showMessageDialog(null, "El socio no tiene multas");
+             }
+        
+    }
+    }  
+    
+      public void ConsultarMultas(GeneradorSocios socios) {
+     multas(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
+}
     
     
     

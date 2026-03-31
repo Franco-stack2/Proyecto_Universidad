@@ -96,12 +96,12 @@ do {
                 switch (opcionSocio) {
 
                     case "1":
-                        gestionsocios.registrarSocio(socios);
+                        gestionsocios.ejecutarRegistro(socios);
                         break;
 
                     case "2":
                        // GestionSocios.ConsultarSocioID();
-                        JOptionPane.showMessageDialog(null, "Pendiente");
+                        gestionsocios.Consultar(socios);
                         break;
 
                     case "3":
@@ -109,7 +109,7 @@ do {
                         break;
 
                     case "4":
-                        JOptionPane.showMessageDialog(null, "Pendiente");
+                        gestionsocios.ConsultarMultas(socios);
                         break;
 
                     case "5":
