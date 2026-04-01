@@ -137,7 +137,7 @@ public class GestionCatalogo
             return;
         }
 
-         Validar si está prestado
+        //Validar si está prestado
         if (libro.getEstadoLibro() == EstadoLibro.PRESTADO) {
            JOptionPane.showMessageDialog(
                     null,
