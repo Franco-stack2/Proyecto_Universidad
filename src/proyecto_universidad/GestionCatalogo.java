@@ -71,8 +71,39 @@ public class GestionCatalogo
             return;
         }
         //Solicitar titulo
-        String titulo = JOption
+        String titulo = JOptionPane.showInputDialog("Ingrese el titulo del libro: ");
+        if(titulo == null){
+            return;
+        }
+        // Solicitat autor
+        String autor = JOptionPane.showInputDialog("Ingrese el autor del libro: ");
+        if (autor == null){
+            return;
+        }
+        // Solicitar editorial
+        String editorial = JOptionPane.showInputDialog("Ingrese la editorial del libro:");
+        if (editorial == null) {
+            return;
+        }
+        
+        // Solicitar año de publicación
+        String anioTexto = JOptionPane.showInputDialog("Ingrese el anio de publicacion:");
+        if (anioTexto == null) {
+            return;
+        }
+        
+        int anio = Integer.parseInt(anioTexto);
+        
+        // Validar que el año sea positivo
+        if (anio <= 0) {
+            JOptionPane.showMessageDialog(null, "Anio de publicacion invalido. Debe ser mayor a 0.");
+            return;
+        }
+        
+        
     }
+    
+    
     // Este método cambia el estado de los libros entre Disponible, en reparación y extraviado)
     private void cambiarEstadoLibro(Generadorlibros generador) {
         if (generador.getTotalLibros() == 0) {
