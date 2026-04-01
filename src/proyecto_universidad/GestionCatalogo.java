@@ -48,7 +48,32 @@ public class GestionCatalogo
         } while (!opcionCatalogo.equals("5"));
     }
     
-    // Este método cambia el estado de los libros entre Disponible, en reparación, extraviado)
+    private void mostrarCatalogoCompleto (Generadorlibros generador)
+    {
+        if (generador.getTotalLibros()==0){
+            System.out.println("No hay libros registrados en el catálogo");
+            JOptionPane.showMessageDialog(null,"No hay libros en el catalogo");
+            
+            return;
+        }
+        
+        System.out.println("\n=== CATALOGO COMPLETO ===");
+        generador.mostrarBiblioteca();
+        
+        JOptionPane.showMessageDialog(null,"Catalogo completo mostrado en consola");
+    }
+    
+    // Este método agrega un nuevo libro al catalogo
+    private void agregarNuevoLibro(Generadorlibros generador){
+        // Validar limite de libros
+        if(generador.getTotalLibros() >= 50) {
+            JOptionPane.showMessageDialog(null, "Limite maximo de libros (50) alcanzado");
+            return;
+        }
+        //Solicitar titulo
+        String titulo = JOption
+    }
+    // Este método cambia el estado de los libros entre Disponible, en reparación y extraviado)
     private void cambiarEstadoLibro(Generadorlibros generador) {
         if (generador.getTotalLibros() == 0) {
             JOptionPane.showMessageDialog(null, "No hay libros en el catalogo");
