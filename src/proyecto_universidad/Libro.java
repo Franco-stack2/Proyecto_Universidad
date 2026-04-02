@@ -36,7 +36,6 @@ public Libro(String titulo, String autor, String editorial, Genero genero, int A
     }
 
     
-
 private String generarISBN() {
         String codigo;
 
@@ -144,5 +143,7 @@ public int getAnioPublicacion() {
     public String getIsbn() {
     return isbn;}
     
-    
+public void cambiarEstado(EstadoLibro nuevoEstado) {
+    this.estadoLibro = nuevoEstado;
+}    
 }

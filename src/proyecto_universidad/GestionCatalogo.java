@@ -101,11 +101,210 @@ public class GestionCatalogo
         }
         
         // Solicitar genero
+        String opcionGenero = JOptionPane.showInputDialog(
+            "Seleccione el genero:\n\n" +
+            "1. NOVELA\n" +
+            "2. CIENCIA_FICCION\n" +
+            "3. HISTORIA\n" +
+            "4. INFANTIL\n" +
+            "5. POESIA\n" +
+            "6. ENSAYO"
+        );
         
+        if (opcionGenero == null) {
+            return;
+        }
         
+        Genero genero = null;
+        
+        switch (opcionGenero) {
+            case "1":
+                genero = Genero.NOVELA;
+                break;
+            case "2":
+                genero = Genero.CIENCIA_FICCION;
+                break;
+            case "3":
+                genero = Genero.HISTORIA;
+                break;
+            case "4":
+                genero = Genero.INFANTIL;
+                break;
+            case "5":
+                genero = Genero.POESIA;
+                break;
+            case "6":
+                genero = Genero.ENSAYO;
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Opcion de genero invalida");
+                return;
+        }
+        // Crea un nuevo libro
+        Libro nuevoLibro = new Libro(titulo, autor, editorial, genero, anio);
+        
+        // Agrega al arreglo
+        Libro[] libros = generador.getLibros();
+        libros[generador.getTotalLibros()] = nuevoLibro;
+        generador.setTotalLibros(generador.getTotalLibros() + 1);
+        
+        // Mostrar confirmación
+        JOptionPane.showMessageDialog(
+            null,
+            "Libro agregado correctamente\n\n" +
+            "ISBN: " + nuevoLibro.getIsbn() + "\n" +
+            "Titulo: " + nuevoLibro.getTitulo() + "\n" +
+            "Autor: " + nuevoLibro.getAutor() + "\n" +
+            "Editorial: " + nuevoLibro.getEditorial() + "\n" +
+            "Anio: " + nuevoLibro.getAnioPublicacion() + "\n" +
+            "Genero: " + nuevoLibro.getGenero() + "\n" +
+            "Estado: " + nuevoLibro.getEstadoLibro()
+        );
     }
     
+    // Este método edita la información de un libro existente
+    private void editarLibro(Generadorlibros generador)
+    {
+        if (generador.getTotalLibros() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "No hay libros en el catálogo");
+            return;            
+        }
+        
+        // Solicitar ISBN del libro a editar
+        String isbn = JOptionPane.showInputDialog("Ingrese el ISBN del libro a editar: ");
+        
+        if (isbn == null){
+            return;
+        }
+        
+        // Buscar X libro
+        Libro libroEncontrado = null;
+        Libro[] libros = generador.getLibros();
+        
+        for (int i = 0; i < generador.getTotalLibros(); i++) {
+            if (libros[i].getIsbn().equals(isbn)) {
+                libroEncontrado = libros[i];
+                break;
+            }
+        }
+        
+        if (libroEncontrado == null) {
+            JOptionPane.showMessageDialog(null, "El libro con ISBN '" + isbn + "' no existe.");
+            return;
+        }
+        
+        menuEdicionLibro(libroEncontrado);     
+    }
     
+    private void menuEdicionLibro(Libro libro)
+    {
+        String opcionEdicion;
+        
+        do {
+            opcionEdicion = JOptionPane.showInputDialog(
+                "Editando: " + libro.getTitulo() + " (" + libro.getIsbn() + ")\n\n" +
+                "1. Editar Titulo\n" +
+                "2. Editar Autor\n" +
+                "3. Editar Editorial\n" +
+                "4. Editar Anio de Publicacion\n" +
+                "5. Editar Genero\n" +
+                "6. Atras"
+            );
+         switch (opcionEdicion) {
+                case "1":
+                    String nuevoTitulo = JOptionPane.showInputDialog("Ingrese el nuevo titulo:");
+                    if (nuevoTitulo != null) {
+                        libro.setTitulo(nuevoTitulo);
+                        JOptionPane.showMessageDialog(null, "Titulo actualizado correctamente.");
+                    }
+                    break;
+                    
+                case "2":
+                    String nuevoAutor = JOptionPane.showInputDialog("Ingrese el nuevo autor:");
+                    if (nuevoAutor != null) {
+                        libro.setAutor(nuevoAutor);
+                        JOptionPane.showMessageDialog(null, "Autor actualizado correctamente.");
+                    }
+                    break;
+                    
+                case "3":
+                    String nuevaEditorial = JOptionPane.showInputDialog("Ingrese la nueva editorial:");
+                    if (nuevaEditorial != null) {
+                        libro.setEditorial(nuevaEditorial);
+                        JOptionPane.showMessageDialog(null, "Editorial actualizada correctamente.");
+                    }
+                    break;
+                    
+                case "4":
+                    String anioTexto = JOptionPane.showInputDialog("Ingrese el nuevo anio de publicacion:");
+                    if (anioTexto != null) {
+                        int nuevoAnio = Integer.parseInt(anioTexto);
+                        
+                        if (nuevoAnio > 0) {
+                            libro.setAnioPublicacion(nuevoAnio);
+                            JOptionPane.showMessageDialog(null, "Anio actualizado correctamente.");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Anio invalido. Debe ser mayor a 0.");
+                        }
+                    }
+                    break;
+                    
+                case "5":
+                    String opcionGenero = JOptionPane.showInputDialog(
+                        "Genero actual: " + libro.getGenero() + "\n\n" +
+                        "Seleccione el nuevo genero:\n\n" +
+                        "1. NOVELA\n" +
+                        "2. CIENCIA_FICCION\n" +
+                        "3. HISTORIA\n" +
+                        "4. INFANTIL\n" +
+                        "5. POESIA\n" +
+                        "6. ENSAYO"
+                    );
+                    
+                    if (opcionGenero != null) {
+                        Genero nuevoGenero = null;
+                        
+                        switch (opcionGenero) {
+                            case "1":
+                                nuevoGenero = Genero.NOVELA;
+                                break;
+                            case "2":
+                                nuevoGenero = Genero.CIENCIA_FICCION;
+                                break;
+                            case "3":
+                                nuevoGenero = Genero.HISTORIA;
+                                break;
+                            case "4":
+                                nuevoGenero = Genero.INFANTIL;
+                                break;
+                            case "5":
+                                nuevoGenero = Genero.POESIA;
+                                break;
+                            case "6":
+                                nuevoGenero = Genero.ENSAYO;
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion invalida");
+                        }
+                        
+                        if (nuevoGenero != null) {
+                            libro.setGenero(nuevoGenero);
+                            JOptionPane.showMessageDialog(null, "Genero actualizado correctamente.");
+                        }
+                    }
+                    break;
+                    
+                case "6":
+                    break;
+                    
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion invalida");
+            }
+            
+        } while (!opcionEdicion.equals("6"));
+    }
+        
     // Este método cambia el estado de los libros entre Disponible, en reparación y extraviado)
     private void cambiarEstadoLibro(Generadorlibros generador) {
         if (generador.getTotalLibros() == 0) {
@@ -116,95 +315,83 @@ public class GestionCatalogo
         // Solicitar ISBN
         String isbn = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
 
-        if (isbn == null || isbn.trim().isEmpty()) {
+        if (isbn == null) {
             return; // Usuario canceló
         }
 
-         Buscar libro
-        Libro libro = buscarLibroPorISBN(generador, isbn);
+        //Buscar libro
+        Libro libroEncontrado = null;
+        Libro[] libros = generador.getLibros();
 
-       if (libro == null) {
-            int opcion = JOptionPane.showConfirmDialog(
-                    null,
-                    "El libro con ISBN '" + isbn + "' no existe.\n¿Desea ingresar otro ISBN?",
-                    "Libro no encontrado",
-                    JOptionPane.YES_NO_OPTION
-            );
-
-            if (opcion == JOptionPane.YES_OPTION) {
-                cambiarEstadoLibro(generador); // Reintentar
+        for (int i = 0; i < generador.getLibros().length; i++) {
+            if (libros[i].getIsbn().equals(isbn)) {
+                libroEncontrado = libros[i];
+                break;
             }
+        }
+        if (libroEncontrado == null) {
+            JOptionPane.showMessageDialog(null, "El libro con ISBN '" + isbn + "' no existe.");
             return;
         }
-
-        //Validar si está prestado
-        if (libro.getEstadoLibro() == EstadoLibro.PRESTADO) {
-           JOptionPane.showMessageDialog(
-                    null,
-                    "El libro '" + libro.getTitulo() + "' (" + isbn + ") esta PRESTADO.\n"
-                    + "No se puede cambiar su estado directamente aqui.\n"
-                    + "Debe ser devuelto primero."
+        //Aquí se valida si el libro está prestado
+        if (libroEncontrado.getEstadoLibro() == EstadoLibro.PRESTADO) {
+            JOptionPane.showMessageDialog(
+                null,
+                "El libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ") esta PRESTADO.\n" +
+                "No se puede cambiar su estado directamente aqui.\n" +
+                "Debe ser devuelto primero."
             );
             return;
         }
-
-        // Mostrar menú simple de opciones
+        
         String opcionEstado = JOptionPane.showInputDialog(
-                "Libro: " + libro.getTitulo() + " (" + isbn + ")\n"
-                + "Estado actual: " + libro.getEstadoLibro() + "\n\n"
-                + "Seleccione el nuevo estado:\n\n"
-                + "1. DISPONIBLE\n"
-                + "2. EN_REPARACION\n"
-                + "3. EXTRAVIADO\n"
-                + "4. Cancelar"
+             "Libro: " + libroEncontrado.getTitulo() + " (" + isbn + ")\n" +
+            "Estado actual: " + libroEncontrado.getEstadoLibro() + "\n\n" +
+            "Seleccione el nuevo estado:\n\n" +
+            "1. DISPONIBLE\n" +
+            "2. EN_REPARACION\n" +
+            "3. EXTRAVIADO\n" +
+            "4. Cancelar"   
         );
-
-        // Procesar la selección
-        if (opcionEstado == null) {
-            return; // Usuario canceló
+        
+        if (opcionEstado == null){
+            return;
         }
-
         switch (opcionEstado) {
             case "1":
-                libro.devolver(); // Cambia a DISPONIBLE
+                libroEncontrado.devolver();
                 JOptionPane.showMessageDialog(
                         null,
-                        "Estado del libro '" + libro.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
                         + "cambiado a DISPONIBLE."
                 );
                 break;
 
             case "2":
-                libro.cambiarEstado(EstadoLibro.EN_REPARACION);
+                libroEncontrado.cambiarEstado(EstadoLibro.EN_REPARACION);
                 JOptionPane.showMessageDialog(
                         null,
-                        "Estado del libro '" + libro.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
                         + "cambiado a EN_REPARACION."
                 );
                 break;
 
             case "3":
-                libro.extraviado(); // Cambia a EXTRAVIADO
+                libroEncontrado.extraviado();
                 JOptionPane.showMessageDialog(
                         null,
-                        "Estado del libro '" + libro.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
                         + "cambiado a EXTRAVIADO."
                 );
                 break;
-
             case "4":
-                // No hacer nada, cancelar
                 break;
 
             default:
                 JOptionPane.showMessageDialog(null, "Opcion invalida");
         }
+
+    
     }
-    // Buscar un libro por ISBN 
+    
 }
-       
-
-    
-    
-    
-

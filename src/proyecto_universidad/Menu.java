@@ -74,7 +74,8 @@ do {
             break;
 
         case "3":
-            JOptionPane.showMessageDialog(null, "Catalogo en construccion");
+            GestionCatalogo gestionCatalogo = new GestionCatalogo();
+            gestionCatalogo.menuCatalogo(generador);
             break;
 
         case "4":
