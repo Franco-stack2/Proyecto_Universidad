@@ -31,7 +31,7 @@ public class GestionCatalogo
                     break;
                     
                 case "3":
-                   // editarLibro(generador);
+                    editarLibro(generador);
                     break;
                     
                 case "4":
