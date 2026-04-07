@@ -65,7 +65,7 @@ public class GestionCatalogo
     
     // Este método agrega un nuevo libro al catalogo
     private void agregarNuevoLibro(Generadorlibros generador){
-        // Validar limite de libros
+        // Validar limite de libros y si hay espacio.
         if(generador.getTotalLibros() >= 50) {
             JOptionPane.showMessageDialog(null, "Limite maximo de libros (50) alcanzado");
             return;
@@ -101,7 +101,7 @@ public class GestionCatalogo
         }
         
         // Solicitar genero
-        String opcionGenero = JOptionPane.showInputDialog(
+        String opcionGenero = JOptionPane.showInputDialog( // Creo un menú con las 6 opciones del menú
             "Seleccione el genero:\n\n" +
             "1. NOVELA\n" +
             "2. CIENCIA_FICCION\n" +
@@ -115,9 +115,9 @@ public class GestionCatalogo
             return;
         }
         
-        Genero genero = null;
+        Genero genero = null; // Aquí creo una variable genero, tipo de dato Genero y que está vacía
         
-        switch (opcionGenero) {
+        switch (opcionGenero) { // De acuerdo a lo que elija como opción, 
             case "1":
                 genero = Genero.NOVELA;
                 break;
@@ -141,12 +141,12 @@ public class GestionCatalogo
                 return;
         }
         // Crea un nuevo libro
-        Libro nuevoLibro = new Libro(titulo, autor, editorial, genero, anio);
+        Libro nuevoLibro = new Libro(titulo, autor, editorial, genero, anio); // El constructor genera automaticamente el ISBN...
         
         // Agrega al arreglo
-        Libro[] libros = generador.getLibros();
-        libros[generador.getTotalLibros()] = nuevoLibro;
-        generador.setTotalLibros(generador.getTotalLibros() + 1);
+        Libro[] libros = generador.getLibros(); // El arreglo está dentro de generador
+        libros[generador.getTotalLibros()] = nuevoLibro; // Añade el nuevoLibro al arreglo, añade una nueva posición.
+        generador.setTotalLibros(generador.getTotalLibros() + 1); // Actualiza el contador, el "TotalLibros"
         
         // Mostrar confirmación
         JOptionPane.showMessageDialog(
@@ -165,7 +165,7 @@ public class GestionCatalogo
     // Este método edita la información de un libro existente
     private void editarLibro(Generadorlibros generador)
     {
-        if (generador.getTotalLibros() == 0)
+        if (generador.getTotalLibros() == 0) // Verifica si existe al menos un 1 libro
         {
             JOptionPane.showMessageDialog(null, "No hay libros en el catálogo");
             return;            
@@ -180,11 +180,11 @@ public class GestionCatalogo
         
         // Buscar X libro
         Libro libroEncontrado = null;
-        Libro[] libros = generador.getLibros();
+        Libro[] libros = generador.getLibros();// libros es una referencia / copia al arreglo original
         
         for (int i = 0; i < generador.getTotalLibros(); i++) {
             if (libros[i].getIsbn().equals(isbn)) {
-                libroEncontrado = libros[i];
+                libroEncontrado = libros[i]; // Guarda el libro encontrado
                 break;
             }
         }
@@ -194,7 +194,7 @@ public class GestionCatalogo
             return;
         }
         
-        menuEdicionLibro(libroEncontrado);     
+        menuEdicionLibro(libroEncontrado); // Pasa el libro que encontró al otro método para editarlo
     }
     
     private void menuEdicionLibro(Libro libro)
