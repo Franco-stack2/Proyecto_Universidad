@@ -112,7 +112,7 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
     public void registrarDevolucion(){
 
     String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
-    int id = Integer.parseInt(input);
+    int id = Integer.parseInt(input); 
 
     for(int i = 0; i < listaPrestamos.size(); i++){
 
@@ -124,19 +124,49 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
                 JOptionPane.showMessageDialog(null, "El prestamo no esta activo");
                 return;
             }
+             String opcion = JOptionPane.showInputDialog("""
+                ¿Como desea registrar la devolucion?
 
-            // se da la simulacion de una devolucion sin atrasos
-            p.devolverLibros("HOY", false);
+                1. A tiempo
+                2. Con retraso
+            """);
+
+            boolean retraso = false;
+
+            if(opcion.equals("1")){
+                retraso = false;
+            }
+            else if(opcion.equals("2")){
+                retraso = true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Opcion invalida");
+                return;
+            }
+
+            // fecha simulada
+            String fechaReal = "HOY";
+
+            // se la aplica la devolucion con la logica que si se eligio retraso false el retraso no aplica y se dio true si se da
+            p.devolverLibros(fechaReal, retraso);
 
             // se cambia el estado del libro
             p.getLibro().devolver();
+
+            // se le aplica la multa al socio
+            if(retraso){
+                Socio socio = p.getSocio(); 
+                socio.setMultasAcumuladas(
+                    socio.getMultasAcumuladas() + 1000
+                );
+            }
 
             JOptionPane.showMessageDialog(null, "Libro devuelto correctamente");
 
             return;
         }
     }
-
+ 
     JOptionPane.showMessageDialog(null, "Prestamo no existe");
 }
     
