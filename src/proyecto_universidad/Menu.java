@@ -21,7 +21,8 @@ do {
         2. Menu de Prestamos
         3. Catalogo
         4. Menu de Socios
-        5. Salir
+        5. Reportes
+        6. Salir
     """);
 
     switch (opcion) {
@@ -125,13 +126,15 @@ do {
             break;
 
         case "5":
+            JOptionPane.showMessageDialog(null, "En Construccion");
+            break;
+        case "6":
             JOptionPane.showMessageDialog(null, "Saliendo del sistema...");
             break;
-
         default:
             JOptionPane.showMessageDialog(null, "Opcion invalida");
         }
 
-    } while (!opcion.equals("5")); // este while nos ayuda a que si entramos al sistema la persona solo pueda salir se marca la opcion 5
+    } while (!opcion.equals("6")); // este while nos ayuda a que si entramos al sistema la persona solo pueda salir se marca la opcion 5
     }
 }
