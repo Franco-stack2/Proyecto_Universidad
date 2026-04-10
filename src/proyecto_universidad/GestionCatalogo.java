@@ -197,7 +197,7 @@ public class GestionCatalogo
         menuEdicionLibro(libroEncontrado); // Pasa el libro que encontró al otro método para editarlo
     }
     
-    private void menuEdicionLibro(Libro libro)
+    private void menuEdicionLibro(Libro libro) // El método recibe al objeto de tipo Libro, que se encontró en 187
     {
         String opcionEdicion;
         
