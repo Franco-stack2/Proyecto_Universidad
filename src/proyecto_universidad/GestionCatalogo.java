@@ -337,7 +337,7 @@ public class GestionCatalogo
         if (libroEncontrado.getEstadoLibro() == EstadoLibro.PRESTADO) {
             JOptionPane.showMessageDialog(
                 null,
-                "El libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ") esta PRESTADO.\n" +
+                "El libro '" + libroEncontrado.getTitulo() + "" + isbn + " esta PRESTADO.\n" +
                 "No se puede cambiar su estado directamente aqui.\n" +
                 "Debe ser devuelto primero."
             );
