@@ -38,8 +38,8 @@ public class Prestamo {
         this.multaGeneradaEstePrestamo = 0.0;
     }
     
-    public void devolverLibros(String fechaReal, boolean retraso){
-      this.fechaDevolucionReal = fechaReal;
+    public void devolverLibros(String fechaReal, boolean retraso){ // aqui continua la logica de devolver con retraso con que si es false entonces va al else y si es
+      this.fechaDevolucionReal = fechaReal; // si es true entonces se devuelve con retraso
 
         if (retraso) {
             this.estadoPrestamo = EstadoPrestamo.DEVUELTO_CON_RETRASO;
