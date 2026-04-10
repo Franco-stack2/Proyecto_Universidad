@@ -61,4 +61,12 @@ public class Prestamo {
      public Libro getLibro(){
     return libro;
 }
+     
+         public Socio getSocio() {
+        return socio;
+    }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
 }
