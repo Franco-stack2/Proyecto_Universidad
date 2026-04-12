@@ -306,7 +306,7 @@ public class GestionCatalogo
     }
         
     // Este método cambia el estado de los libros entre Disponible, en reparación y extraviado)
-    private void cambiarEstadoLibro(Generadorlibros generador) {
+    private void cambiarEstadoLibro(Generadorlibros generador) { // Objeto generador de tipo Generadorlibros.
         if (generador.getTotalLibros() == 0) {
             JOptionPane.showMessageDialog(null, "No hay libros en el catalogo");
             return;
@@ -320,12 +320,12 @@ public class GestionCatalogo
         }
 
         //Buscar libro
-        Libro libroEncontrado = null;
-        Libro[] libros = generador.getLibros();
+        Libro libroEncontrado = null; // Aquí se guarda el libro cuando lo encuentre
+        Libro[] libros = generador.getLibros(); // Se obtiene el arreglo de libros
 
-        for (int i = 0; i < generador.getLibros().length; i++) {
+        for (int i = 0; i < generador.getTotalLibros(); i++) {
             if (libros[i].getIsbn().equals(isbn)) {
-                libroEncontrado = libros[i];
+                libroEncontrado = libros[i]; // Aquí se guarda el libro en "libroEncontrado"
                 break;
             }
         }
@@ -362,16 +362,16 @@ public class GestionCatalogo
                 libroEncontrado.devolver();
                 JOptionPane.showMessageDialog(
                         null,
-                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo()+" "+ isbn + "\n"
                         + "cambiado a DISPONIBLE."
                 );
                 break;
 
-            case "2":
-                libroEncontrado.cambiarEstado(EstadoLibro.EN_REPARACION);
-                JOptionPane.showMessageDialog(
+            case "2": // Aqui se usa cambiarEstado porque no existe un método específico para reparación y así se convierte
+                libroEncontrado.cambiarEstado(EstadoLibro.EN_REPARACION); // Aquí se llama al método "cambiarEstado"
+                JOptionPane.showMessageDialog( // Lo pasa al estado " En reparación"
                         null,
-                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo() +" "+ isbn +"\n"
                         + "cambiado a EN_REPARACION."
                 );
                 break;
@@ -380,7 +380,7 @@ public class GestionCatalogo
                 libroEncontrado.extraviado();
                 JOptionPane.showMessageDialog(
                         null,
-                        "Estado del libro '" + libroEncontrado.getTitulo() + "' (" + isbn + ")\n"
+                        "Estado del libro '" + libroEncontrado.getTitulo() +" "+ isbn + "\n"
                         + "cambiado a EXTRAVIADO."
                 );
                 break;
