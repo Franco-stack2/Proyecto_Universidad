@@ -138,10 +138,15 @@ public class GestionSocios {
     
     public void actualizarEstadoSocio(GeneradorSocios socios){
          String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
+         
 
             if (idBuscado == null) {
                 return;
             }
+        if (idBuscado.equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un ID");
+            return;
+        }
 
             boolean encontrado = false;
             
@@ -214,6 +219,10 @@ public class GestionSocios {
             if (idBuscado == null) {
                 return;
             }
+               if (idBuscado.equals("")) {
+                   JOptionPane.showMessageDialog(null, "Debe ingresar un ID");
+                   return;
+               }
 
             boolean encontrado = false;
              Socio socioEncontrado =null;
@@ -235,6 +244,15 @@ public class GestionSocios {
                     1. Pagar la totalidad
                     2. Pagar un monto parcial:
                 """);
+                 if (op == null) {
+                     JOptionPane.showMessageDialog(null, "operacion cancelada");
+                     break;
+                 }//validacion
+                 
+                 if(op.equals("")){
+                  JOptionPane.showMessageDialog(null, "opcion invalida");
+                  return;
+                 }
 
                 switch (op) {
 

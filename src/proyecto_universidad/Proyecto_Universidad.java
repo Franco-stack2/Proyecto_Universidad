@@ -13,7 +13,23 @@ public class Proyecto_Universidad {
     public static void main(String[] args) {
   
         String input = JOptionPane.showInputDialog("Cuantos socios desea generar?");
-        int cantidad = Integer.parseInt(input);
+        
+        
+        if (input == null) {
+            // El usuario presionó Cancelar
+            JOptionPane.showMessageDialog(null, "Operacion cancelada");
+            return;
+        }
+
+        int cantidad = 0; // se llama aca para poder utilizarla 
+
+        try {
+            cantidad = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            return;
+        }
+
     
         
         GestionPrestamos gestion = new GestionPrestamos(); // se crean los objetos ya que todo se encuentra encapsulado por lo tanto para el menu y las otras clases 

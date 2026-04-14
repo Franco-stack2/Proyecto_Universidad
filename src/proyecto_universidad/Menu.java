@@ -24,6 +24,11 @@ do {
         5. Reportes
         6. Salir
     """);
+    
+    if (opcion == null) {
+        JOptionPane.showMessageDialog(null, "operacion cancelada");
+        break;
+    }
 
     switch (opcion) {
 
@@ -48,6 +53,13 @@ do {
                     3. Consultar Prestamo por ID
                     4. Salir
                 """);
+                
+                if (opcionPrestamo == null) {
+                    JOptionPane.showMessageDialog(null, "operacion cancelada");
+                    break;
+                }
+                
+                
 
                 switch (opcionPrestamo) { 
 
@@ -94,6 +106,12 @@ do {
                     4. Gestionar Multas de Socio
                     5. Salir
                 """);
+                
+                if (opcionSocio == null) {
+                    JOptionPane.showMessageDialog(null, "operacion cancelada");
+                    break;
+                }
+  
 
                 switch (opcionSocio) {
 

@@ -90,7 +90,20 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
     public  void consultarPrestamo(){
 
     String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
-    int id = Integer.parseInt(input);
+      if (input == null) {
+            // El usuario presionó Cancelar
+            JOptionPane.showMessageDialog(null, "Operacion cancelada");
+            return;
+        }
+
+        int id = 0; // se llama aca para poder utilizarla 
+
+        try {
+            id = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            return;
+        }
 
     for(int i = 0; i < listaPrestamos.size(); i++){
 
@@ -112,7 +125,22 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
     public void registrarDevolucion(){
 
     String input = JOptionPane.showInputDialog("Ingrese ID del prestamo:");
-    int id = Integer.parseInt(input); 
+        
+        if (input == null) {
+            // El usuario presionó Cancelar
+            JOptionPane.showMessageDialog(null, "Operacion cancelada");
+            return;
+        }
+
+        int id = 0; // se llama aca para poder utilizarla 
+
+        try {
+            id = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            return;
+        }
+
 
     for(int i = 0; i < listaPrestamos.size(); i++){
 

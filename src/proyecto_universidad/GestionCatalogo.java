@@ -21,6 +21,11 @@ public class GestionCatalogo
                 5. Salir
             """);
             
+            if (opcionCatalogo == null) {
+                JOptionPane.showMessageDialog(null, "operacion cancelada");
+                break;
+            }
+            
             switch (opcionCatalogo) {
                 case "1":
                     mostrarCatalogoCompleto(generador);
@@ -72,22 +77,39 @@ public class GestionCatalogo
         }
         //Solicitar titulo
         String titulo = JOptionPane.showInputDialog("Ingrese el titulo del libro: ");
-        if(titulo == null){
+        if (titulo.equals("")) {
+            JOptionPane.showMessageDialog(null, "opcion invalida");
+            return;
+        }
+        if (titulo == null) {
             return;
         }
         // Solicitat autor
         String autor = JOptionPane.showInputDialog("Ingrese el autor del libro: ");
-        if (autor == null){
+        if (autor.equals("")) {
+            JOptionPane.showMessageDialog(null, "opcion invalida");
+            return;
+        }
+        if (autor == null) {
             return;
         }
         // Solicitar editorial
         String editorial = JOptionPane.showInputDialog("Ingrese la editorial del libro:");
+        
+        if (editorial.equals("")) {
+            JOptionPane.showMessageDialog(null, "opcion invalida");
+            return;
+        }
         if (editorial == null) {
             return;
         }
         
         // Solicitar año de publicación
         String anioTexto = JOptionPane.showInputDialog("Ingrese el anio de publicacion:");
+        if (anioTexto.equals("")) {
+            JOptionPane.showMessageDialog(null, "opcion invalida");
+            return;
+        }
         if (anioTexto == null) {
             return;
         }
