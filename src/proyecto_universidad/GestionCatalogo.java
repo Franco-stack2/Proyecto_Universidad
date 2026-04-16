@@ -50,7 +50,7 @@ public class GestionCatalogo
                     JOptionPane.showMessageDialog(null, "Opcion invalida");
             }
             
-        } while (!opcionCatalogo.equals("5"));
+        } while (!opcionCatalogo.equals("5")); // Que se repita todo hasta que la opción sea 5.
     }
     
     private void mostrarCatalogoCompleto (Generadorlibros generador)
@@ -366,7 +366,7 @@ public class GestionCatalogo
             return;
         }
         
-        String opcionEstado = JOptionPane.showInputDialog(
+        String opcionEstado = JOptionPane.showInputDialog( // Aquí se muestra el menú
              "Libro: " + libroEncontrado.getTitulo() + " (" + isbn + ")\n" +
             "Estado actual: " + libroEncontrado.getEstadoLibro() + "\n\n" +
             "Seleccione el nuevo estado:\n\n" +
