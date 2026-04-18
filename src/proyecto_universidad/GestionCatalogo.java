@@ -139,7 +139,7 @@ public class GestionCatalogo
         
         Genero genero = null; // Aquí creo una variable genero, tipo de dato Genero y que está vacía
         
-        switch (opcionGenero) { // De acuerdo a lo que elija como opción, 
+        switch (opcionGenero) { // De acuerdo a lo que elija como opción
             case "1":
                 genero = Genero.NOVELA;
                 break;
