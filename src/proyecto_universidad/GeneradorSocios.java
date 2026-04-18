@@ -20,8 +20,8 @@ public class GeneradorSocios {
     };
 
 
-    public  String generarNombreCompleto() {
-        int indiceNombre = random.nextInt(nombres.length);
+    public  String generarNombreCompleto() {  //nextInt genera números aleatorios
+        int indiceNombre = random.nextInt(nombres.length); 
         int indiceApellido = random.nextInt(apellidos.length);
         String nombre = nombres[indiceNombre];
         String apellido = apellidos[indiceApellido];
@@ -56,7 +56,7 @@ public class GeneradorSocios {
 
     public void mostrarSocios() {
         for (int i = 0; i < listaSocios.size(); i++) {
-            Socio s = listaSocios.get(i);
+            Socio s = listaSocios.get(i); // Esto devuelve el elemento que está en la posición "i"
 
             String linea = s.getIdSocio() + " | " + s.getNombreCompleto() + " | " +
                            s.getFechaRegistro() + " | " + s.getEstadoSocio();
