@@ -144,8 +144,68 @@ do {
             break;
 
         case "5":
-            JOptionPane.showMessageDialog(null, "En Construccion");
+            
+         String opcionReportes;
+            
+          do{
+         
+         opcionReportes = JOptionPane.showInputDialog("""
+                    MENU REPORTES
+
+                    1. Libros Mas Prestados 
+                    2. Socios con Mas Prestamos Historicos
+                    3. Socios Actualmente Morosos
+                    4. Prestamos Activos y Vencidos
+                    5. Historial de Préstamos de un Socio Específico  
+                    6. Libros por Estado                                                                  
+                    7. Salir
+                """);
+         
+         
+                 if (opcionReportes == null) {
+                    JOptionPane.showMessageDialog(null, "operacion cancelada");
+                    break;
+                }
+         
+            
+
+                switch (opcionReportes) {
+
+                    case "1":
+                   
+                        break;
+
+                    case "2":
+                    
+                     
+                        break;
+
+                    case "3":
+                       ;
+                        break;
+
+                    case "4":
+                      
+                        break;
+
+                    case "5":
+                        break;
+                        
+                    case "6":
+                        break;
+                        
+                    case "7":
+                        
+                        break;
+
+                    default:
+                        JOptionPane.showMessageDialog(null, "Opcion invalida");
+                }
+
+            } while (!opcionReportes.equals("7"));
+
             break;
+ 
         case "6":
             JOptionPane.showMessageDialog(null, "Saliendo del sistema...");
             break;
