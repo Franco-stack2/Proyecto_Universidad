@@ -324,7 +324,7 @@ public class GestionCatalogo
                     JOptionPane.showMessageDialog(null, "Opcion invalida");
             }
             
-        } while (!opcionEdicion.equals("6"));
+        } while (!opcionEdicion.equals("6")); // Repetir mientras la opción no sea 6
     }
         
     // Este método cambia el estado de los libros entre Disponible, en reparación y extraviado)
