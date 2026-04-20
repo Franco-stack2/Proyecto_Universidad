@@ -18,9 +18,9 @@ public class Reportes {
 
                 if(libros[i].getVecesPrestado() < libros[j].getVecesPrestado()){
 
-                    Libro aux = libros[i];
+                    Libro provisional = libros[i];
                     libros[i] = libros[j];
-                    libros[j] = aux;
+                    libros[j] = provisional;
                 }
             }
         }
