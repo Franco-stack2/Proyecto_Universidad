@@ -10,35 +10,41 @@ public class Reportes {
   
      public void topLibros(Generadorlibros generador){
      
+         System.out.println("TOP 5 LIBROS:");
+         
          Libro[] libros = generador.getLibros();
         int total = generador.getTotalLibros();
-     
-     for(int i = 0; i < total; i++){
-            for(int j = i + 1; j < total; j++){
+   
+      boolean[] usado = new boolean[total];
 
-                if(libros[i].getVecesPrestado() < libros[j].getVecesPrestado()){
+for(int k = 0; k < 5 && k < total; k++){
 
-                    Libro provisional = libros[i];
-                    libros[i] = libros[j];
-                    libros[j] = provisional;
-                }
+    int indiceMayor = -1;
+
+    for(int i = 0; i < total; i++){
+
+        if(!usado[i]){ 
+
+            if(indiceMayor == -1 || 
+               libros[i].getVecesPrestado() > libros[indiceMayor].getVecesPrestado()){
+
+                indiceMayor = i;
             }
         }
+    }
 
-        System.out.println("TOP 5 LIBROS:");
+    // marcar como usado
+    usado[indiceMayor] = true;
 
-        for(int i = 0; i < 5 && i < total; i++){
-            System.out.println(
-                libros[i].getIsbn() + " | " +
-                libros[i].getTitulo() + " | " +
-                libros[i].getVecesPrestado()
-            );
-        }
-    
+    // mostrar
+    System.out.println(
+        libros[indiceMayor].getIsbn() + " | " +
+        libros[indiceMayor].getTitulo() + " | " +
+        libros[indiceMayor].getVecesPrestado()
+    );
+}
      
-     }
-    
-         
-         
+}
+       
     
 }
