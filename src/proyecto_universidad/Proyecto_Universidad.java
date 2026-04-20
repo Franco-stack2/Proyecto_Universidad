@@ -30,7 +30,7 @@ public class Proyecto_Universidad {
             return;
         }
 
-    
+          Reportes reportes = new Reportes(); // se crea el objeto reportes para llamarlo en el menu
         
         GestionPrestamos gestion = new GestionPrestamos(); // se crean los objetos ya que todo se encuentra encapsulado por lo tanto para el menu y las otras clases 
         // se le llaman estos objetos
@@ -54,7 +54,7 @@ if (generador.getTotalLibros() >= 2) {
     libros[1].extraviado();
 }
        Menu menu = new Menu(); // al ser el metodo menuprincipal public pero no static hay que crear el objeto menu para poder llamarlo 
-       menu.menuPrincipal(generador,socios,gestion,gestionsocios); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
+       menu.menuPrincipal(generador,socios,gestion,gestionsocios,reportes); // se llama al primer menu que va a visualizar el usuario que viene con sus submenus respectivos
  
  
     }

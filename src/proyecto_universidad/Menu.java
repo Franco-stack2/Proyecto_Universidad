@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Menu {
 
-    public void menuPrincipal(Generadorlibros generador,GeneradorSocios socios,GestionPrestamos gestion,GestionSocios gestionsocios) {
+    public void menuPrincipal(Generadorlibros generador,GeneradorSocios socios,GestionPrestamos gestion,GestionSocios gestionsocios,Reportes reportes) {
 
         String opcion;
 
@@ -172,7 +172,7 @@ do {
                 switch (opcionReportes) {
 
                     case "1":
-                     topLibros(generador);
+                     reportes.topLibros(generador);
                         break;
 
                     case "2":
