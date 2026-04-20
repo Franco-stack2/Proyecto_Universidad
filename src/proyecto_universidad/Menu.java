@@ -129,7 +129,7 @@ do {
                         break;
 
                     case "4":
-                        gestionsocios.multas121212(socios);
+                        gestionsocios.multas(socios);
                         break;
 
                     case "5":
