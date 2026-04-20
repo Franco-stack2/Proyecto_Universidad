@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 public class GestionSocios {
     
     
-     private void registrarSocio(GeneradorSocios socios ) {
+     public void registrarSocio(GeneradorSocios socios ) {
          
          
     String id =generarIdUnico(socios);
@@ -31,9 +31,7 @@ public class GestionSocios {
         
      }
      
-     public void ejecutarRegistro(GeneradorSocios socios) {
-    registrarSocio(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
-}
+
     
     
 
@@ -101,7 +99,7 @@ public class GestionSocios {
       
     }
     
-    private static void ConsultarSocioID(GeneradorSocios socios){
+    public static void ConsultarSocioID(GeneradorSocios socios){
         
           while (true) {
             String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
@@ -131,9 +129,7 @@ public class GestionSocios {
     }
     }
     
-     public void Consultar(GeneradorSocios socios) {
-     ConsultarSocioID(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
-}
+ 
     
     
     public void actualizarEstadoSocio(GeneradorSocios socios){
@@ -211,7 +207,7 @@ public class GestionSocios {
     }
     
     
-    private void multas(GeneradorSocios socios){
+    public void multas(GeneradorSocios socios){
     
            while (true) {
             String idBuscado = JOptionPane.showInputDialog("Ingrese el ID del socio:");
@@ -299,9 +295,7 @@ public class GestionSocios {
     }
     }  
     
-      public void ConsultarMultas(GeneradorSocios socios) {
-     multas(socios); // aca uso el  encapsulamiento, dejo el método principal privado y lo llamo desde un método público
-}
+ 
     
     
     

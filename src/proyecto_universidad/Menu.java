@@ -116,12 +116,12 @@ do {
                 switch (opcionSocio) {
 
                     case "1":
-                        gestionsocios.ejecutarRegistro(socios);
+                        gestionsocios.registrarSocio(socios);
                         break;
 
                     case "2":
                        // GestionSocios.ConsultarSocioID();
-                        gestionsocios.Consultar(socios);
+                        gestionsocios.ConsultarSocioID(socios);
                         break;
 
                     case "3":
@@ -129,7 +129,7 @@ do {
                         break;
 
                     case "4":
-                        gestionsocios.ConsultarMultas(socios);
+                        gestionsocios.multas121212(socios);
                         break;
 
                     case "5":
