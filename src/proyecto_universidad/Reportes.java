@@ -8,7 +8,37 @@ package proyecto_universidad;
 public class Reportes {
     
   
+     public void topLibros(Generadorlibros generador){
+     
+         Libro[] libros = generador.getLibros();
+        int total = generador.getTotalLibros();
+     
+     for(int i = 0; i < total; i++){
+            for(int j = i + 1; j < total; j++){
+
+                if(libros[i].getVecesPrestado() < libros[j].getVecesPrestado()){
+
+                    Libro aux = libros[i];
+                    libros[i] = libros[j];
+                    libros[j] = aux;
+                }
+            }
+        }
+
+        System.out.println("TOP 5 LIBROS:");
+
+        for(int i = 0; i < 5 && i < total; i++){
+            System.out.println(
+                libros[i].getIsbn() + " | " +
+                libros[i].getTitulo() + " | " +
+                libros[i].getVecesPrestado()
+            );
+        }
     
+     
+     }
     
+         
+         
     
 }

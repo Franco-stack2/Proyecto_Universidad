@@ -172,7 +172,7 @@ do {
                 switch (opcionReportes) {
 
                     case "1":
-                   
+                     topLibros(generador);
                         break;
 
                     case "2":
@@ -181,7 +181,7 @@ do {
                         break;
 
                     case "3":
-                       ;
+                      
                         break;
 
                     case "4":
