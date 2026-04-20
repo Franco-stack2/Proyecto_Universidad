@@ -8,7 +8,9 @@ package proyecto_universidad;
     import javax.swing.JOptionPane;
 import java.util.ArrayList;
 public class GestionPrestamos {
-static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
+
+
+public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
 
     public void registrarPrestamo(Libro[] libros, int totalLibros,GeneradorSocios socios){
 
@@ -196,8 +198,16 @@ static ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
     }
  
     JOptionPane.showMessageDialog(null, "Prestamo no existe");
-}
     
+    
+}
+     public ArrayList<Prestamo> getListaPrestamos() {
+        return listaPrestamos;
+    }
+
+    public void setListaPrestamos(ArrayList<Prestamo> listaPrestamos) {
+        this.listaPrestamos = listaPrestamos;
+    }
     
 }
 

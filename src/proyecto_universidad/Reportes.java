@@ -4,6 +4,8 @@
  */
 package proyecto_universidad;
 
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class Reportes {
     
@@ -47,7 +49,26 @@ for(int k = 0; k < 5 && k < total; k++){
 }
        
   
-     
+     public void historialSocio(GestionPrestamos gestion){
+
+    String id = JOptionPane.showInputDialog("Ingrese ID socio:");
+
+    ArrayList<Prestamo> lista = gestion.getListaPrestamos();
+
+    for(int i = 0; i < lista.size(); i++){
+
+        Prestamo p = lista.get(i);
+
+        if(p.getSocio().getIdSocio().equals(id)){
+
+            System.out.println(
+                "Prestamo: " + p.getIdPrestamo() +
+                " | Libro: " + p.getLibro().getTitulo() +
+                " | Estado: " + p.getEstadoPrestamo()
+            );
+        }
+    }
+}
      
      
      
