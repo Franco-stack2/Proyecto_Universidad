@@ -195,7 +195,7 @@ do {
                         break;
                         
                     case "7":
-                        
+                        JOptionPane.showMessageDialog(null, "Saliendo");
                         break;
 
                     default:
