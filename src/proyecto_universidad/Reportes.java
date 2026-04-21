@@ -47,8 +47,72 @@ for(int k = 0; k < 5 && k < total; k++){
 }
      
 }
-       
-  
+        public void topSocios(GestionPrestamos gestion){
+
+        ArrayList<Prestamo> lista = gestion.getListaPrestamos();
+
+    ArrayList<Socio> sociosUnicos = new ArrayList<>();
+    ArrayList<Integer> contadorPrestamos = new ArrayList<>();
+
+ 
+    for(int i = 0; i < lista.size(); i++){
+
+        Socio s = lista.get(i).getSocio();
+
+        int pos = -1;
+
+        for(int j = 0; j < sociosUnicos.size(); j++){
+            if(sociosUnicos.get(j).getIdSocio().equals(s.getIdSocio())){
+                pos = j;
+                break;
+            }
+        }
+
+        if(pos == -1){
+            sociosUnicos.add(s);
+            contadorPrestamos.add(1);
+        }else{
+            contadorPrestamos.set(pos, contadorPrestamos.get(pos) + 1);
+        }
+    }
+
+    int total = sociosUnicos.size();
+
+    boolean[] usado = new boolean[total];
+
+    System.out.println("TOP 5 SOCIOS:");
+
+    // se aplica la misma logica para ordenar mayor
+    for(int k = 0; k < 5 && k < total; k++){
+
+        int indiceMayor = -1;
+
+        for(int i = 0; i < total; i++){
+
+            if(!usado[i]){
+
+                if(indiceMayor == -1 || 
+                   contadorPrestamos.get(i) > contadorPrestamos.get(indiceMayor)){
+
+                    indiceMayor = i;
+                }
+            }
+        }
+
+        usado[indiceMayor] = true;
+
+        System.out.println(
+            sociosUnicos.get(indiceMayor).getIdSocio() + " | " +
+            sociosUnicos.get(indiceMayor).getNombreCompleto() + " | " +
+            contadorPrestamos.get(indiceMayor)
+        );
+    }
+}
+     
+     
+     
+     
+     
      public void historialSocio(GestionPrestamos gestion){
 
     String id = JOptionPane.showInputDialog("Ingrese ID socio:");
@@ -71,7 +135,7 @@ for(int k = 0; k < 5 && k < total; k++){
 }
      
      
-     
+      
      
      
      
