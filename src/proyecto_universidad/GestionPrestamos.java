@@ -162,6 +162,8 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             """);
 
             boolean retraso = false;
+            int diasRetraso = 0;
+            double multa = 0.0;
 
             if(opcion.equals("1")){
                 retraso = false;
@@ -169,6 +171,29 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             else if(opcion.equals("2")){
                 retraso = true;
                 
+                String salidaDias = JOptionPane.showInputDialog("¿Cuanto días de retraso?: ");
+                
+                try{
+                    diasRetraso = Integer.parseInt(salidaDias);
+                    
+                    if(diasRetraso <= 0){
+                        JOptionPane.showMessageDialog(null,"Los días deben de ser mayor a 0");
+                    }
+                    
+                    // Aquí se calcula la multa de 100 colones por día
+                    double multaPorDia = 100.0;
+                    multa = diasRetraso * multaPorDia;
+                    
+                    JOptionPane.showMessageDialog(null, 
+                        "INFORMACION DE RETRASO:\n" +
+                        "Dias de retraso: " + diasRetraso + "\n" +
+                        "Multa por dia: ₡" + multaPorDia + "\n" +
+                        "Multa total generada: ₡" + multa);
+                    
+                } catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"Debe ingresar un número válido númerico de días");
+                    return;
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null, "Opcion invalida");

@@ -49,12 +49,6 @@ public class Prestamo {
         }
     }
     
-    // Este método genera un número aleatorio de días de retraso entre 1 y 10
-    public int calcularDiasRetraso(String fechaDevolucionReal){
-        int diasRetraso = 1 + (int)(Math.random()* 10);
-        return diasRetraso;
-    }
-    
       public int getIdPrestamo() {
         return idPrestamo;
     }
