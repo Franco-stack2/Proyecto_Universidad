@@ -54,7 +54,7 @@ for(int k = 0; k < 5 && k < total; k++){
     ArrayList<Socio> sociosUnicos = new ArrayList<>();
     ArrayList<Integer> contadorPrestamos = new ArrayList<>();
 
- 
+
     for(int i = 0; i < lista.size(); i++){
 
         Socio s = lista.get(i).getSocio();
@@ -133,22 +133,7 @@ for(int k = 0; k < 5 && k < total; k++){
         }
     }
 }
-     
-     
-      
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+       
      
      
 }
