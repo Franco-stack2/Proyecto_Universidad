@@ -47,7 +47,6 @@ public class Prestamo {
         } else {
             this.estadoPrestamo = EstadoPrestamo.DEVUELTO_A_TIEMPO;
         }
-    
     }
     
       public int getIdPrestamo() {
