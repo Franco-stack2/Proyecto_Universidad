@@ -180,7 +180,7 @@ do {
                         break;
 
                     case "3":
-                      
+                     reportes.sociosMorosos(socios);
                         break;
 
                     case "4":

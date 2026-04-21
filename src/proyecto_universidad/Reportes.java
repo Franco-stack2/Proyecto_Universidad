@@ -109,7 +109,25 @@ for(int k = 0; k < 5 && k < total; k++){
     }
 }
      
+    public void sociosMorosos(GeneradorSocios socios){
+    
+    for(int i = 0; i < socios.getListaSocios().size(); i++){ // se inicializa para que se recorran todos los socios uno por uno con el .size
+    
+        Socio s = socios.getListaSocios().get(i);// se crea el objeto que va a representar al socio que va a pasar por el if
+        
+        if(s.getEstadoSocio() == Estadosocio.MOROSO || s.getMultasAcumuladas() > 0){
+        
+       System.out.println(
+                    s.getIdSocio() + " | " +
+                    s.getNombreCompleto() + " | " +
+                    s.getMultasAcumuladas());
      
+        }
+    
+    }
+    
+ 
+    }
      
      
      
