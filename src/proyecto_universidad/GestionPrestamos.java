@@ -168,6 +168,7 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             }
             else if(opcion.equals("2")){
                 retraso = true;
+                
             }
             else{
                 JOptionPane.showMessageDialog(null, "Opcion invalida");
