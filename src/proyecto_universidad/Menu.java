@@ -176,7 +176,7 @@ do {
                         break;
 
                     case "2":
-                     reportes.historialSocio(gestion);
+                     reportes.topSocios(gestion);
                         break;
 
                     case "3":
