@@ -185,7 +185,7 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
                     multa = diasRetraso * multaPorDia;
                     
                     JOptionPane.showMessageDialog(null, 
-                        "INFORMACION DE RETRASO:\n" +
+                        "INFORMACION DE RETRASO: \n" +
                         "Dias de retraso: " + diasRetraso + "\n" +
                         "Multa por dia: ₡" + multaPorDia + "\n" +
                         "Multa total generada: ₡" + multa);
