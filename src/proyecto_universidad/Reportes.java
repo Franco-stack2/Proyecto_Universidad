@@ -128,7 +128,37 @@ for(int k = 0; k < 5 && k < total; k++){
  
     }
      
-     
+     public void prestamosActivosYVencidos(GestionPrestamos gestion){
+
+    ArrayList<Prestamo> lista = gestion.getListaPrestamos();
+
+    System.out.println("PRESTAMOS ACTIVOS Y VENCIDOS:");
+
+    for(int i = 0; i < lista.size(); i++){
+
+        Prestamo p = lista.get(i);
+
+        if(p.getEstadoPrestamo() == EstadoPrestamo.ACTIVO){
+
+            String estado = "ACTIVO";
+
+            // se hace una simulacion para dar si esta activo o vencido
+            int diasSimulados = (int)(Math.random() * 30);
+
+            if(diasSimulados > 15){
+                estado = "VENCIDO";
+            }
+
+            System.out.println(
+                p.getIdPrestamo() + " | " +
+                p.getLibro().getIsbn() + " | " +
+                p.getSocio().getIdSocio() + " | " +
+                "15 dias despues | " +
+                estado
+            );
+        }
+    }
+}
      
      public void historialSocio(GestionPrestamos gestion){
 
