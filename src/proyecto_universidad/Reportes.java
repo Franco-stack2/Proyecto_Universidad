@@ -23,7 +23,7 @@ for(int k = 0; k < 5 && k < total; k++){
 
     int indiceMayor = -1; // aqui se inicia con -1 porque no hay candidato aun entonces se agarra cualquier libro para que sea el punto de comparacion
 
-    for(int i = 0; i < total; i++){
+    for(int i = 0; i < total; i++){ // esto se asegura que se examinen todos los libros
 
         if(!usado[i]){ 
 
