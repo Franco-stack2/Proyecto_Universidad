@@ -184,7 +184,7 @@ do {
                         break;
 
                     case "4":
-                     
+                     reportes.prestamosActivosYVencidos(gestion);
                         break;
 
                     case "5":
