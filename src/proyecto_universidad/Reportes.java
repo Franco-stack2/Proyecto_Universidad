@@ -182,6 +182,7 @@ for(int k = 0; k < 5 && k < total; k++){
             }
         }
 
+        System.out.println("LIBROS POR ESTADO: ");
         System.out.println("Disponibles: " + disponibles);
         System.out.println("Prestados: " + prestados);
         System.out.println("En reparacion: " + reparacion);
