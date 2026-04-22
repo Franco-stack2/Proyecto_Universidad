@@ -152,6 +152,42 @@ for(int k = 0; k < 5 && k < total; k++){
     }
 }
        
+    public void librosPorEstado(Generadorlibros generador){
+
+        Libro[] libros = generador.getLibros();
+        int total = generador.getTotalLibros();
+
+        int disponibles = 0;
+        int prestados = 0;
+        int reparacion = 0;
+        int extraviados = 0;
+
+        for(int i = 0; i < total; i++){
+
+            if(null != libros[i].getEstadoLibro())switch (libros[i].getEstadoLibro()) {
+                case DISPONIBLE:
+                    disponibles++;
+                    break;
+                case PRESTADO:
+                    prestados++;
+                    break;
+                case EN_REPARACION:
+                    reparacion++;
+                    break;
+                case EXTRAVIADO:
+                    extraviados++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        System.out.println("Disponibles: " + disponibles);
+        System.out.println("Prestados: " + prestados);
+        System.out.println("En reparacion: " + reparacion);
+        System.out.println("Extraviados: " + extraviados);
+    }
+
      
      
 }

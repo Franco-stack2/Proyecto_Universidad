@@ -131,7 +131,7 @@ do {
                     case "4":
                         gestionsocios.multas(socios);
                         break;
-
+  
                     case "5":
                         break;
 
@@ -184,7 +184,7 @@ do {
                         break;
 
                     case "4":
-                      
+                     
                         break;
 
                     case "5":
@@ -192,6 +192,7 @@ do {
                         break;
                         
                     case "6":
+                    reportes.librosPorEstado(generador);
                         break;
                         
                     case "7":
