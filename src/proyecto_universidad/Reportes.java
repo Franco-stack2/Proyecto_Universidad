@@ -164,7 +164,7 @@ for(int k = 0; k < 5 && k < total; k++){
 
         for(int i = 0; i < total; i++){
 
-            if(null != libros[i].getEstadoLibro())
+            if(null != libros[i].getEstadoLibro()){
               
             switch (libros[i].getEstadoLibro()) {
                 case DISPONIBLE:
@@ -189,7 +189,7 @@ for(int k = 0; k < 5 && k < total; k++){
         System.out.println("Prestados: " + prestados);
         System.out.println("En reparacion: " + reparacion);
         System.out.println("Extraviados: " + extraviados);
-    }
+        }}
 
      
      
