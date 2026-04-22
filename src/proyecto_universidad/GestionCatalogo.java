@@ -106,6 +106,7 @@ public class GestionCatalogo
         
         // Solicitar año de publicación
         String anioTexto = JOptionPane.showInputDialog("Ingrese el anio de publicacion:");
+      
         if (anioTexto.equals("")) {
             JOptionPane.showMessageDialog(null, "opcion invalida");
             return;
@@ -113,8 +114,23 @@ public class GestionCatalogo
         if (anioTexto == null) {
             return;
         }
+        int anio=0;
+         try {
+             anio = Integer.parseInt(anioTexto);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            return;
+        }
         
-        int anio = Integer.parseInt(anioTexto);
+        
+        
+          int anioActual=2026;
+        if(anio>anioActual){
+            
+            JOptionPane.showMessageDialog(null, "Anio de publicacion invalido. Debe ser menor al anio actual");
+            return;
+            
+        }
         
         // Validar que el año sea positivo
         if (anio <= 0) {
