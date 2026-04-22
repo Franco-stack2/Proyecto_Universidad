@@ -178,6 +178,7 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
                     
                     if(diasRetraso <= 0){
                         JOptionPane.showMessageDialog(null,"Los días deben de ser mayor a 0");
+                        return;
                     }
                     
                     // Aquí se calcula la multa de 100 colones por día
@@ -201,7 +202,7 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             }
 
             // fecha simulada
-            String fechaReal = "HOY";
+            String fechaReal = "HOY"; // se crea esto para cumplir con el parametro de devolverLibros
 
             // se la aplica la devolucion con la logica que si se eligio retraso false el retraso no aplica y se dio true si se da
             p.devolverLibros(fechaReal, retraso);

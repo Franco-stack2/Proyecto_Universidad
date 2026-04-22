@@ -43,7 +43,6 @@ public class Prestamo {
 
         if (retraso) {
             this.estadoPrestamo = EstadoPrestamo.DEVUELTO_CON_RETRASO;
-            this.multaGeneradaEstePrestamo = 1000; 
         } else {
             this.estadoPrestamo = EstadoPrestamo.DEVUELTO_A_TIEMPO;
         }
