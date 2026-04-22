@@ -27,8 +27,7 @@ for(int k = 0; k < 5 && k < total; k++){
 
         if(!usado[i]){ 
 
-            if(indiceMayor == -1 || 
-               libros[i].getVecesPrestado() > libros[indiceMayor].getVecesPrestado()){ // este or es el que nos da el paso para que una de las opciones sea que -1 sea el primer libro
+            if(indiceMayor == -1 || libros[i].getVecesPrestado() > libros[indiceMayor].getVecesPrestado()){ // este or es el que nos da el paso para que una de las opciones sea que -1 sea el primer libro
 
                 indiceMayor = i;
             }
