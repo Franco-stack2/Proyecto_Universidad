@@ -38,7 +38,7 @@ for(int k = 0; k < 5 && k < total; k++){
     
     usado[indiceMayor] = true; // con el !usado de antes se usa esto para tachar un libro que ya fue evaluado
 
-    // mostrar
+   
     System.out.println(
         libros[indiceMayor].getIsbn() + " | " +
         libros[indiceMayor].getTitulo() + " | " +
