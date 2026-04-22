@@ -164,7 +164,9 @@ for(int k = 0; k < 5 && k < total; k++){
 
         for(int i = 0; i < total; i++){
 
-            if(null != libros[i].getEstadoLibro())switch (libros[i].getEstadoLibro()) {
+            if(null != libros[i].getEstadoLibro())
+              
+            switch (libros[i].getEstadoLibro()) {
                 case DISPONIBLE:
                     disponibles++;
                     break;
