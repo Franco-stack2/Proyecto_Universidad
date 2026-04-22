@@ -214,7 +214,7 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
             if(retraso){
                 Socio socio = p.getSocio(); 
                 socio.setMultasAcumuladas(
-                    socio.getMultasAcumuladas() + 1000
+                    socio.getMultasAcumuladas() + multa
                 );
             }
 
