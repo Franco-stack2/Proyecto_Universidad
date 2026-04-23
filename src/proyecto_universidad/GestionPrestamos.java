@@ -160,6 +160,10 @@ public ArrayList<Prestamo> listaPrestamos = new ArrayList<>();
                 1. A tiempo
                 2. Con retraso
             """);
+             if (opcion == null) {
+                     JOptionPane.showMessageDialog(null, "operacion cancelada");
+                     break;
+                 }
 
             boolean retraso = false;
             int diasRetraso = 0;
