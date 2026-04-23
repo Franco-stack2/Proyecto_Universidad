@@ -267,7 +267,7 @@ public class GestionSocios {
                         
                         try { //Se realiza un try catch para verificar que el usuario no ingrese numero invalidos 
                             double cantidad = Integer.parseInt(JOptionPane.showInputDialog("Indique la cantidad que desea pagar"));
-                            double monto = cantidad - socioEncontrado.getMultasAcumuladas();
+                            double monto = socioEncontrado.getMultasAcumuladas()-cantidad ;
 
                             JOptionPane.showMessageDialog(null, "Su multa era de " + socioEncontrado.getMultasAcumuladas() + "Usted pago la cantidad de " + cantidad + " El total restante es de " + monto);
                             JOptionPane.showMessageDialog(null, "El pago parcial se realizo con exito");
