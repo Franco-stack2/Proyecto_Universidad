@@ -257,6 +257,11 @@ public class GestionCatalogo
          switch (opcionEdicion) {
                 case "1":
                     String nuevoTitulo = JOptionPane.showInputDialog("Ingrese el nuevo titulo:");
+                    if(nuevoTitulo.equals("")){
+                        JOptionPane.showMessageDialog(null, "El titulo no puede estar vacio"); 
+                        return;
+                    }
+                    
                     if (nuevoTitulo != null) {
                         libro.setTitulo(nuevoTitulo);
                         JOptionPane.showMessageDialog(null, "Titulo actualizado correctamente.");
@@ -264,7 +269,11 @@ public class GestionCatalogo
                     break;
                     
                 case "2":
-                    String nuevoAutor = JOptionPane.showInputDialog("Ingrese el nuevo autor:");
+                    String nuevoAutor = JOptionPane.showInputDialog("Ingrese el nuevo autor:"); 
+                     if(nuevoAutor.equals("")){
+                        JOptionPane.showMessageDialog(null, "El autor no puede estar vacio"); 
+                        return;
+                    }
                     if (nuevoAutor != null) {
                         libro.setAutor(nuevoAutor);
                         JOptionPane.showMessageDialog(null, "Autor actualizado correctamente.");
@@ -272,7 +281,11 @@ public class GestionCatalogo
                     break;
                     
                 case "3":
-                    String nuevaEditorial = JOptionPane.showInputDialog("Ingrese la nueva editorial:");
+                    String nuevaEditorial = JOptionPane.showInputDialog("Ingrese la nueva editorial:"); 
+                     if(nuevaEditorial.equals("")){
+                        JOptionPane.showMessageDialog(null, "La editorial no puede estar vacio"); 
+                        return;
+                    }
                     if (nuevaEditorial != null) {
                         libro.setEditorial(nuevaEditorial);
                         JOptionPane.showMessageDialog(null, "Editorial actualizada correctamente.");
@@ -280,7 +293,11 @@ public class GestionCatalogo
                     break;
                     
                 case "4":
-                    String anioTexto = JOptionPane.showInputDialog("Ingrese el nuevo anio de publicacion:");
+                    String anioTexto = JOptionPane.showInputDialog("Ingrese el nuevo anio de publicacion:"); 
+                        if (anioTexto.equals("")) {
+                        JOptionPane.showMessageDialog(null, "El anio no puede estar vacio");
+                        return;
+                    }
                     if (anioTexto != null) {
                         int nuevoAnio = 0;
                         try {
