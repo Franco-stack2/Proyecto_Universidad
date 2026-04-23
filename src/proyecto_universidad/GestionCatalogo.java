@@ -249,6 +249,11 @@ public class GestionCatalogo
                 "5. Editar Genero\n" +
                 "6. Atras"
             );
+            
+             if (opcionEdicion == null) {
+            return;
+        }
+        
          switch (opcionEdicion) {
                 case "1":
                     String nuevoTitulo = JOptionPane.showInputDialog("Ingrese el nuevo titulo:");
@@ -277,7 +282,20 @@ public class GestionCatalogo
                 case "4":
                     String anioTexto = JOptionPane.showInputDialog("Ingrese el nuevo anio de publicacion:");
                     if (anioTexto != null) {
-                        int nuevoAnio = Integer.parseInt(anioTexto);
+                        int nuevoAnio = 0;
+                        try {
+                            nuevoAnio = Integer.parseInt(anioTexto);
+                        } catch (NumberFormatException e) {
+                            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+                            return;
+                        }
+                            int anioActual=2026;
+                        if (nuevoAnio > anioActual) {
+
+                            JOptionPane.showMessageDialog(null, "Anio de publicacion invalido. Debe ser menor al anio actual");
+                            return;
+
+                        }
                         
                         if (nuevoAnio > 0) {
                             libro.setAnioPublicacion(nuevoAnio);
@@ -285,6 +303,7 @@ public class GestionCatalogo
                         } else {
                             JOptionPane.showMessageDialog(null, "Anio invalido. Debe ser mayor a 0.");
                         }
+                      
                     }
                     break;
                     
